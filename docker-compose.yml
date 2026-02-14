@@ -4,7 +4,9 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - .:/smart-routing-platform
+      - ./app:/smart-routing-platform/app
+      - ./pyproject.toml:/smart-routing-platform/pyproject.toml
+      - ./uv.lock:/smart-routing-platform/uv.lock
     ports:
       - "8000:8000"
     depends_on:
