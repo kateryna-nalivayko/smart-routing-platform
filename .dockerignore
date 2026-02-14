@@ -1,0 +1,47 @@
+__pycache__/
+db.sqlite3
+.DS_Store
+.venv/
+.env
+.env.dev
+.env.prod
+.virtualenvs/
+.pylintrc
+.pytest_cache/
+.celerybeat-schedule.db
+celerybeat-schedule
+cache/
+.git
+
+sets/
+Dockerfile
+Dockerfile.prod
+
+
+# PyCharm IDE
+.idea/
+*.iml
+
+# Python temporary
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Coverage
+htmlcov/
+.coverage
+
+# Local VSCode (если кто-то использует)
+.vscode/
+
+# Node modules (если есть фронтенд)
+node_modules/
+
+# Mac/Linux temp
+*.bak
+*.tmp

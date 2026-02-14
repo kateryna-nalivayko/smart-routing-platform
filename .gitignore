@@ -57,6 +57,8 @@ out/
 .ipynb_checkpoints
 
 # Environments
+.env.dev
+.env.prod
 .env
 .venv/
 env/
@@ -64,6 +66,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+.env*
 
 # uv local Python versions
 .local/share/uv/python/
@@ -91,3 +94,5 @@ venv.bak/
 
 uv.lock
 test_main.http
+/app/routing/
+/sandbox/

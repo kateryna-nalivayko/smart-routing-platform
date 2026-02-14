@@ -1,0 +1,27 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/smart-routing-platform
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    env_file:
+      - ./.env.dev
+
+  postgres:
+    image: postgres:18.2-trixie
+    restart: on-failure:5
+    volumes:
+      - dev_data:/var/lib/postgresql/18/data/
+    env_file:
+      - .env.dev
+    ports:
+      - "5432:5432"
+
+
+volumes:
+  dev_data:
