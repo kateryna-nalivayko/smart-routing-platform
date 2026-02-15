@@ -1,0 +1,28 @@
+@startuml 03-system-architecture
+!include <C4/C4_Container>
+
+LAYOUT_WITH_LEGEND()
+
+title Архітектура платформи Smart Routing (FastAPI + Dramatiq + AWS)
+
+Person(user, "Менеджер / Клієнт", "Керує базою об'єктів та запускає розрахунок маршрутів")
+
+System_Boundary(c1, "Smart Routing Platform") {
+    Container(api, "API Service", "Python, FastAPI", "Валідує дані (Pydantic), керує запитами та статусами задач")
+    ContainerDb(db, "Database", "PostgreSQL + PostGIS", "Зберігає дані техників, об'єктів (JSONB), координати та результати VRP")
+    Container(broker, "Message Broker", "RabbitMQ / Redis", "Черга завдань для асинхронної обробки")
+    Container(worker, "Optimization Worker", "Python, Dramatiq + OR-Tools", "Обчислює оптимальні маршрути (VRP), будує матрицю відстаней")
+}
+
+System_Ext(aws_location, "AWS Location Service", "Cloud Service", "Геокодинг (Адреса -> Координати) та перевірка геозон")
+
+Rel(user, api, "Використовує", "HTTPS/JSON")
+Rel(api, db, "Зберігає об'єкти/задачі", "SQLAlchemy")
+Rel(api, aws_location, "Геокодує адреси", "Boto3 / AWS SDK")
+Rel(api, broker, "Ставить задачу на маршрутизацію", "Dramatiq")
+
+Rel(broker, worker, "Передає задачу")
+Rel(worker, db, "Завантажує координати та записує розклад")
+Rel(worker, aws_location, "Розрахунок матриці відстаней (опціонально)", "HTTPS")
+
+@enduml

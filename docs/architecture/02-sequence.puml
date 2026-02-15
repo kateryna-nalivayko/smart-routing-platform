@@ -1,0 +1,64 @@
+@startuml 02-sequence
+actor "Client / AppSync" as Client
+participant "FastAPI\n(API Endpoints)" as API
+participant "RabbitMQ \n(Message Broker)" as Broker
+participant "Dramatiq Worker\n(Background Task)" as Worker
+database "PostgreSQL\n(Standard + JSONB)" as DB
+participant "OR-Tools\n(Optimizer)" as Optimizer
+
+Client -> API: POST /api/v1/routes/optimize\n(Вхідний JSON з даними)
+activate API
+
+API -> API: Валідація даних\n(Pydantic моделі)
+
+API -> DB: Збереження базових даних\n(ServiceSite, Technician)
+activate DB
+DB --> API: OK
+deactivate DB
+
+API -> Broker: Відправка задачі на оптимізацію\n(task_id, дані)
+activate Broker
+Broker --> API: Task Enqueued
+deactivate Broker
+
+API --> Client: 202 Accepted\n(Повертає task_id для відстеження статусу)
+deactivate API
+
+== Асинхронна обробка задачі (Background) ==
+
+Broker -> Worker: Отримання задачі (task_id)
+activate Worker
+
+Worker -> DB: Запит необхідних даних для маршруту\n(Координати з Postgres)
+activate DB
+DB --> Worker: Дані локацій та техніків
+deactivate DB
+
+Worker -> Optimizer: Побудова матриці відстаней та запуск VRP
+activate Optimizer
+note right
+  OR-Tools враховує Time Windows,
+  навички техніків та час у дорозі
+end note
+Optimizer --> Worker: Згенеровані маршрути (Routes)
+deactivate Optimizer
+
+Worker -> DB: Збереження результатів у таблиці\n(Route, RouteStop)
+activate DB
+DB --> Worker: OK
+deactivate DB
+
+Worker -> Broker: Задача виконана (ACK)
+deactivate Worker
+
+== Отримання результату клієнтом ==
+
+Client -> API: GET /api/v1/routes/status/{task_id}
+activate API
+API -> DB: Перевірка статусу задачі / результату
+activate DB
+DB --> API: Готовий маршрут (JSON)
+deactivate DB
+API --> Client: 200 OK\n(Розклад та маршрути)
+deactivate API
+@enduml
