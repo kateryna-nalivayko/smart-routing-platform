@@ -1,0 +1,55 @@
+@startuml 03-smart-routing-db-er
+!define primary_key(x) <b><color:#b8861b><&key></color> x</b>
+!define foreign_key(x) <color:#aaaaaa><&key></color> x
+!define column(x) <color:#efefef><&media-record></color> x
+!define table(x) entity x << (T, white) >>
+
+table(Technician) {
+  primary_key(id): UUID
+  column(name): VARCHAR
+  column(start_location): JSONB // Початкова точка (координати або адреса)
+  column(end_location): JSONB // Кінцева точка
+  column(working_hours): JSONB // Графік роботи та перерви
+  column(skills): JSONB // Навички (наприклад, interior, exterior)
+}
+
+table(ServiceSite) {
+  primary_key(id): UUID
+  column(tenant_id): UUID
+  column(name): VARCHAR
+  column(address): VARCHAR
+  column(coordinates): POINT // Стандартна координата PostgreSQL (або PostGIS)
+  column(contact_info): JSONB // Контакти (email, phone, name)
+  column(site_details): JSONB // Поверхи (floors), паркування, доступ
+}
+
+table(Service) {
+  primary_key(id): UUID
+  foreign_key(site_id): UUID // Посилання на ServiceSite
+  foreign_key(tech_user_id): UUID // Призначений технік
+  column(job_type): VARCHAR
+  column(visit_frequency): VARCHAR // Частота візитів
+  column(displays): JSONB // Детальна інформація про рослини/горщики (масив JSON)
+}
+
+table(Route) {
+  primary_key(id): UUID
+  foreign_key(technician_id): UUID
+  column(date): DATE // Дата маршруту
+  column(total_distance): FLOAT
+  column(total_duration): INT
+}
+
+table(RouteStop) {
+  primary_key(id): UUID
+  foreign_key(route_id): UUID
+  foreign_key(service_id): UUID // Який сервіс виконується на зупинці
+  column(stop_order): INT // Порядковий номер зупинки
+  column(arrival_time): TIMESTAMP
+}
+
+ServiceSite "1" -- "0..*" Service : містить
+Technician "1" -- "0..*" Route : виконує
+Route "1" -- "1..*" RouteStop : складається з
+RouteStop "1" -- "1" Service : обслуговує
+@enduml
