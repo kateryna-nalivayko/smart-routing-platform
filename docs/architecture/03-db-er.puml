@@ -1,55 +1,383 @@
-@startuml 03-smart-routing-db-er
-!define primary_key(x) <b><color:#b8861b><&key></color> x</b>
-!define foreign_key(x) <color:#aaaaaa><&key></color> x
-!define column(x) <color:#efefef><&media-record></color> x
-!define table(x) entity x << (T, white) >>
+@startuml
+' ── Загальні налаштування ────────────────────────────────────────────────────
+!theme plain
+skinparam backgroundColor #FAFAFA
+skinparam roundcorner 8
+skinparam defaultFontName "Roboto Mono"
 
-table(Technician) {
-  primary_key(id): UUID
-  column(name): VARCHAR
-  column(start_location): JSONB // Початкова точка (координати або адреса)
-  column(end_location): JSONB // Кінцева точка
-  column(working_hours): JSONB // Графік роботи та перерви
-  column(skills): JSONB // Навички (наприклад, interior, exterior)
+skinparam entity {
+  BackgroundColor #FFFFFF
+  BorderColor     #2D6A9F
+  FontColor       #1A1A2E
+  FontSize        12
+}
+skinparam EntityAttribute {
+  BackgroundColor #EDF4FB
+}
+skinparam arrow {
+  Color     #2D6A9F
+  FontColor #444444
+  FontSize  10
 }
 
-table(ServiceSite) {
-  primary_key(id): UUID
-  column(tenant_id): UUID
-  column(name): VARCHAR
-  column(address): VARCHAR
-  column(coordinates): POINT // Стандартна координата PostgreSQL (або PostGIS)
-  column(contact_info): JSONB // Контакти (email, phone, name)
-  column(site_details): JSONB // Поверхи (floors), паркування, доступ
+title <b>Smart Routing Platform — ER-діаграма</b>\nPostgreSQL · SQLAlchemy 2.0 · Dramatiq + RabbitMQ\n
+
+' ════════════════════════════════════════════════════════════════════════
+' TECHNICIANS — технічний спеціаліст
+' ════════════════════════════════════════════════════════════════════════
+entity "**technicians**" as T {
+  * id               : UUID          <<PK>>
+  --
+  ' ── Основна інформація ─────────────────────
+  * name             : VARCHAR(255)
+  --
+  ' ── Домашня адреса (geocoding → координати)
+    home_address     : VARCHAR(500)
+    home_latitude    : NUMERIC(10,8)
+    home_longitude   : NUMERIC(11,8)
+  ' ── Адреса офісу
+    office_address   : VARCHAR(500)
+    office_latitude  : NUMERIC(10,8)
+    office_longitude : NUMERIC(11,8)
+  --
+  ' ── Режим роботи ───────────────────────────
+  * starts_from      : start_point_enum
+  * finishes_at      : start_point_enum
+  * transport_mode   : transport_mode_enum
+  --
+  ' ── Робочі години по днях тижня ────────────
+  ' NULL в обох полях = вихідний день
+    monday_start     : TIME
+    monday_end       : TIME
+    tuesday_start    : TIME
+    tuesday_end      : TIME
+    wednesday_start  : TIME
+    wednesday_end    : TIME
+    thursday_start   : TIME
+    thursday_end     : TIME
+    friday_start     : TIME
+    friday_end       : TIME
+    saturday_start   : TIME
+    saturday_end     : TIME
+    sunday_start     : TIME
+    sunday_end       : TIME
+  --
+  ' ── Ліміти та перерва ──────────────────────
+  * max_hours_per_day    : INTEGER = 8
+  * max_hours_per_week   : INTEGER = 40
+    break_duration_minutes : INTEGER
+    break_earliest_start   : TIME
+    break_latest_start     : TIME
+  --
+  ' ── Здібності (hard constraints) ───────────
+  * can_do_physically_demanding : BOOLEAN = false
+  * skilled_in_living_walls     : BOOLEAN = false
+  * comfortable_with_heights    : BOOLEAN = false
+  * certified_with_lift         : BOOLEAN = false
+  * has_pesticide_certification : BOOLEAN = false
+  * is_citizen                  : BOOLEAN = false
+  --
+  * is_active  : BOOLEAN = true
+  * created_at : TIMESTAMPTZ
+  * updated_at : TIMESTAMPTZ
 }
 
-table(Service) {
-  primary_key(id): UUID
-  foreign_key(site_id): UUID // Посилання на ServiceSite
-  foreign_key(tech_user_id): UUID // Призначений технік
-  column(job_type): VARCHAR
-  column(visit_frequency): VARCHAR // Частота візитів
-  column(displays): JSONB // Детальна інформація про рослини/горщики (масив JSON)
+' ════════════════════════════════════════════════════════════════════════
+' TECHNICIAN_SKILLS — навички техніка (M2M)
+' PK = (technician_id, skill_type, skill_level)
+' Приклад: "interior - senior, exterior - medior"
+' ════════════════════════════════════════════════════════════════════════
+entity "**technician_skills**" as TS {
+  * technician_id : UUID             <<FK>>
+  * skill_type    : skill_type_enum  <<PK>>
+  * skill_level   : skill_level_enum <<PK>>
+  --
+  ' Каскадне видалення разом з технічником
 }
 
-table(Route) {
-  primary_key(id): UUID
-  foreign_key(technician_id): UUID
-  column(date): DATE // Дата маршруту
-  column(total_distance): FLOAT
-  column(total_duration): INT
+' ════════════════════════════════════════════════════════════════════════
+' SERVICE_SITES — об'єкт / заявка на обслуговування
+' ════════════════════════════════════════════════════════════════════════
+entity "**service_sites**" as SS {
+  * id        : UUID         <<PK>>
+  * site_code : VARCHAR(50)  <<UNIQUE>>
+  --
+    site_name : VARCHAR(255)
+  --
+  ' ── Локація (geocoding → координати) ───────
+    address   : VARCHAR(500)
+    latitude  : NUMERIC(10,8)
+    longitude : NUMERIC(11,8)
+  --
+  ' ── Доступ ─────────────────────────────────
+    best_accessed_by : transport_mode_enum
+  * requires_permit  : BOOLEAN = false
+  --
+  ' ── Параметри візиту ────────────────────────
+  * duration_minutes : INTEGER  NOT NULL
+  * visit_frequency  : visit_frequency_enum
+  --
+  ' ── Вимоги до виконавця (hard constraints) ─
+  * is_physically_demanding        : BOOLEAN = false
+  * has_living_walls               : BOOLEAN = false
+  * requires_work_at_heights       : BOOLEAN = false
+  * requires_lift_usage            : BOOLEAN = false
+  * requires_pesticide_application : BOOLEAN = false
+  * requires_citizen_technician    : BOOLEAN = false
+  --
+  * status   : service_status_enum   = pending
+  * priority : service_priority_enum = normal
+  --
+  ' ── Прив'язані техніки ──────────────────────
+  ' current: soft constraint (бонус у OR-Tools)
+  ' assigned: результат оптимізації
+    current_technician_id  : UUID <<FK nullable>>
+    assigned_technician_id : UUID <<FK nullable>>
+  --
+    assigned_at  : TIMESTAMPTZ
+    completed_at : TIMESTAMPTZ
+  * created_at   : TIMESTAMPTZ
+  * updated_at   : TIMESTAMPTZ
 }
 
-table(RouteStop) {
-  primary_key(id): UUID
-  foreign_key(route_id): UUID
-  foreign_key(service_id): UUID // Який сервіс виконується на зупинці
-  column(stop_order): INT // Порядковий номер зупинки
-  column(arrival_time): TIMESTAMP
+' ════════════════════════════════════════════════════════════════════════
+' SERVICE_REQUIRED_SKILLS — мінімальні навички для об'єкта (M2M)
+' Hard constraint: технік призначається ТІЛЬКИ якщо має відповідний рівень
+' ════════════════════════════════════════════════════════════════════════
+entity "**service_required_skills**" as SRS {
+  * service_site_id : UUID             <<FK>>
+  * skill_type      : skill_type_enum  <<PK>>
+  * skill_level     : skill_level_enum <<PK>>
+  --
+  ' Ієрархія: senior ≥ medior ≥ junior
+  ' Тобто senior може обслужити medior-об'єкт
 }
 
-ServiceSite "1" -- "0..*" Service : містить
-Technician "1" -- "0..*" Route : виконує
-Route "1" -- "1..*" RouteStop : складається з
-RouteStop "1" -- "1" Service : обслуговує
+' ════════════════════════════════════════════════════════════════════════
+' SERVICE_PREFERRED_TECHNICIANS — бажані техніки (M2M, soft constraint)
+' OR-Tools враховує як бонус при призначенні, але не зобов'язаний
+' ════════════════════════════════════════════════════════════════════════
+entity "**service_preferred_technicians**" as SPT {
+  * service_site_id : UUID <<FK>>
+  * technician_id   : UUID <<FK>>
+  --
+  ' З Excel: «Should be serviced by specific technician(s)»
+}
+
+' ════════════════════════════════════════════════════════════════════════
+' SERVICE_FORBIDDEN_TECHNICIANS — заборонені техніки (M2M, hard constraint)
+' OR-Tools повністю виключає такі комбінації
+' ════════════════════════════════════════════════════════════════════════
+entity "**service_forbidden_technicians**" as SFT {
+  * service_site_id : UUID <<FK>>
+  * technician_id   : UUID <<FK>>
+  --
+  ' З Excel: «Should NOT be serviced by the following technician(s)»
+}
+
+' ════════════════════════════════════════════════════════════════════════
+' SERVICE_PERMIT_HOLDERS — техніки з перепусткою (M2M, hard constraint)
+' Актуально лише коли service_sites.requires_permit = true
+' ════════════════════════════════════════════════════════════════════════
+entity "**service_permit_holders**" as SPH {
+  * service_site_id : UUID <<FK>>
+  * technician_id   : UUID <<FK>>
+  --
+  ' Держустанови, банки, режимні об'єкти
+}
+
+' ════════════════════════════════════════════════════════════════════════
+' SERVICE_TIME_WINDOWS — часові вікна об'єкта (1-to-Many)
+' OR-Tools використовує як time_window constraints
+' ════════════════════════════════════════════════════════════════════════
+entity "**service_time_windows**" as STW {
+  * id              : UUID <<PK>>
+  * service_site_id : UUID <<FK>>
+  --
+  * day_of_week : day_of_week_enum
+  * start_time  : TIME
+  * end_time    : TIME
+  --
+  ' CHECK: start_time < end_time
+  ' Приклад: monday 08:00–16:00
+  '          tuesday 08:00–16:00
+}
+
+' ════════════════════════════════════════════════════════════════════════
+' ROUTES — маршрут техніка на один день
+' Результат OR-Tools CVRPTW оптимізації
+' UNIQUE (technician_id, route_date)
+' ════════════════════════════════════════════════════════════════════════
+entity "**routes**" as R {
+  * id            : UUID <<PK>>
+  * technician_id : UUID <<FK>>
+  * route_date    : DATE
+  --
+  * status : route_status_enum = draft
+  --
+  ' ── Метрики (заповнює OR-Tools) ─────────────
+    total_distance_km            : NUMERIC(10,2)
+    total_duration_minutes       : INTEGER
+    total_travel_time_minutes    : INTEGER
+    stops_count                  : INTEGER = 0
+    optimization_time_seconds    : NUMERIC(10,3)
+    optimization_objective_value : NUMERIC(15,2)
+  --
+  ' ── Audit ───────────────────────────────────
+  * created_at  : TIMESTAMPTZ
+    optimized_at: TIMESTAMPTZ
+    started_at  : TIMESTAMPTZ
+    completed_at: TIMESTAMPTZ
+  --
+  ' UNIQUE (technician_id, route_date)
+}
+
+' ════════════════════════════════════════════════════════════════════════
+' ROUTE_STOPS — зупинка в маршруті (1-to-Many)
+' UNIQUE (route_id, sequence_number)
+' ════════════════════════════════════════════════════════════════════════
+entity "**route_stops**" as RS {
+  * id              : UUID <<PK>>
+  * route_id        : UUID <<FK>>
+  * service_site_id : UUID <<FK>>
+  --
+  ' ── Порядок та час ──────────────────────────
+  * sequence_number : INTEGER
+  ' CHECK: > 0
+  * arrival_time    : TIMESTAMPTZ
+  * departure_time  : TIMESTAMPTZ
+  ' CHECK: arrival < departure
+  --
+  ' ── Метрики від попередньої точки ───────────
+    travel_time_from_previous_minutes : INTEGER
+    distance_from_previous_km         : NUMERIC(10,2)
+  --
+  ' UNIQUE (route_id, sequence_number)
+}
+
+' ════════════════════════════════════════════════════════════════════════
+' OPTIMIZATION_TASKS — фонова задача Dramatiq / RabbitMQ
+'
+' Lifecycle:
+'   queued → processing → success
+'                       ↘ failed
+'                       ↘ retrying → processing
+' ════════════════════════════════════════════════════════════════════════
+entity "**optimization_tasks**" as OT {
+  * id          : UUID <<PK>>
+  * target_date : DATE
+  --
+  ' ── Область оптимізації (JSON або NULL=всі) ─
+    technician_ids   : VARCHAR(4000)
+    service_site_ids : VARCHAR(4000)
+  --
+  ' ── Параметри OR-Tools solver ───────────────
+  * timeout_seconds             : INTEGER = 30
+  * first_solution_strategy     : VARCHAR(100)
+  ' напр. PATH_CHEAPEST_ARC
+  * local_search_metaheuristic  : VARCHAR(100)
+  ' напр. GUIDED_LOCAL_SEARCH
+  --
+  ' ── Dramatiq / RabbitMQ ─────────────────────
+  * status               : task_status_enum = queued
+    dramatiq_message_id  : VARCHAR(255)
+  ' ID повідомлення для трасування
+  --
+  ' ── Результати ──────────────────────────────
+    routes_created    : INTEGER
+    sites_unassigned  : INTEGER
+    total_distance_km : NUMERIC(10,2)
+    error_message     : VARCHAR(2000)
+    retry_count       : INTEGER = 0
+  --
+  ' ── Audit ───────────────────────────────────
+  * created_at  : TIMESTAMPTZ
+    started_at  : TIMESTAMPTZ
+    completed_at: TIMESTAMPTZ
+}
+
+' ════════════════════════════════════════════════════════════════════════
+' ЛЕГЕНДА — типи ENUM
+' ════════════════════════════════════════════════════════════════════════
+legend right
+  <b>ENUM-типи</b>
+  ─────────────────────────────────────────────
+  <b>skill_type_enum</b>
+    interior · exterior · floral
+
+  <b>skill_level_enum</b>
+    junior · medior · senior
+    (ієрархія: junior < medior < senior)
+
+  <b>start_point_enum</b>
+    home · office · either_works
+
+  <b>transport_mode_enum</b>
+    car_van · walk · drive_to_hub_and_walk
+
+  <b>visit_frequency_enum</b>
+    1x_week · 2x_week · 3x_week · 4x_week · 5x_week
+
+  <b>day_of_week_enum</b>
+    monday · tuesday · wednesday · thursday
+    friday · saturday · sunday
+
+  <b>service_status_enum</b>
+    pending → assigned → in_progress → completed
+    (cancelled — з будь-якого стану)
+
+  <b>service_priority_enum</b>
+    low(1) · normal(2) · high(3) · urgent(5)
+    (число = вага штрафу в OR-Tools)
+
+  <b>route_status_enum</b>
+    draft → optimized → in_progress → completed
+
+  <b>task_status_enum (Dramatiq)</b>
+    queued → processing → success
+                        ↘ failed / retrying
+  ─────────────────────────────────────────────
+  <b>Умовні позначення:</b>
+  *  обов'язкове поле (NOT NULL)
+  FK зовнішній ключ
+  PK первинний ключ
+  M2M таблиця Many-to-Many (складений PK)
+end legend
+
+' ════════════════════════════════════════════════════════════════════════
+' ЗВ'ЯЗКИ
+' ════════════════════════════════════════════════════════════════════════
+
+' Technician → навички (1-to-Many через M2M)
+T  ||--o{ TS  : "має навички"
+
+' Technician → маршрути (1-to-Many)
+T  ||--o{ R   : "виконує маршрут"
+
+' Technician ← поточний техник на об'єкті (nullable)
+T  |o--o{ SS  : "поточний технік\n(soft constraint)"
+
+' ServiceSite → необхідні навички (1-to-Many через M2M)
+SS ||--o{ SRS : "вимагає навичку"
+
+' ServiceSite → часові вікна (1-to-Many)
+SS ||--o{ STW : "доступний у вікна"
+
+' ServiceSite ↔ preferred техніки (M2M, soft)
+SS }o--o{ SPT : "бажаний технік\n(soft)"
+SPT }o--o| T  : ""
+
+' ServiceSite ↔ forbidden техніки (M2M, hard)
+SS }o--o{ SFT : "заборонений технік\n(hard)"
+SFT }o--o| T  : ""
+
+' ServiceSite ↔ техніки з перепусткою (M2M, hard)
+SS }o--o{ SPH : "перепустка\n(hard)"
+SPH }o--o| T  : ""
+
+' Route → зупинки (1-to-Many)
+R  ||--o{ RS  : "містить зупинки"
+
+' RouteStop → об'єкт (Many-to-1)
+RS }o--|| SS  : "відвідує об'єкт"
 @enduml
