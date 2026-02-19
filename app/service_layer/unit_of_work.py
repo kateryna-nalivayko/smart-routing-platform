@@ -58,8 +58,8 @@ class SqlAlchemyUnitOfWork(AbstractUnitOfWork):
 
         await self.session.close()
 
-    def commit(self):
-        self.session.commit()
+    async def commit(self):
+        await self.session.commit()
 
-    def rollback(self):
-        self.session.rollback()
+    async def rollback(self):
+        await self.session.rollback()
