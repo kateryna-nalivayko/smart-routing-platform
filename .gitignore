@@ -96,3 +96,10 @@ uv.lock
 test_main.http
 /app/routing/
 /sandbox/
+
+# Alembic
+alembic/versions/__pycache__/
+alembic.ini.local
+
+# Ruff
+.ruff_cache/

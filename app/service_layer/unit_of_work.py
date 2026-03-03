@@ -1,13 +1,15 @@
 import abc
 from abc import ABC
 
-from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine, AsyncSession
+from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 
-from app.config.database import get_postgres_uri
 from app.adapters.ports import (
-    AbstractTechnicianRepository,
+    AbstractOptimizationTaskRepository,
+    AbstractRouteRepository,
     AbstractServiceRequestRepository,
-    AbstractRouteRepository, AbstractOptimizationTaskRepository)
+    AbstractTechnicianRepository,
+)
+from app.config.database import get_postgres_uri
 
 DEFAULT_SESSION_FACTORY = async_sessionmaker(
     bind=create_async_engine(
@@ -49,6 +51,18 @@ class SqlAlchemyUnitOfWork(AbstractUnitOfWork):
 
     async def __aenter__(self):
         self.session = self.session_factory()
+
+        from app.adapters.repositories import (
+            SqlAlchemyOptimizationTaskRepository,
+            SqlAlchemyRouteRepository,
+            SqlAlchemyServiceRequestRepository,
+            SqlAlchemyTechnicianRepository,
+        )
+
+        self.technicians = SqlAlchemyTechnicianRepository(self.session)
+        self.service_requests = SqlAlchemyServiceRequestRepository(self.session)
+        self.routes = SqlAlchemyRouteRepository(self.session)
+        self.optimization_tasks = SqlAlchemyOptimizationTaskRepository(self.session)
 
         return self
 
