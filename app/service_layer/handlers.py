@@ -6,23 +6,73 @@ Command and Query handlers.
 
 from uuid import UUID
 
+from sqlalchemy import select
+
+from app.adapters.optimization.solver_adapter import MVPSolverAdapter
+from app.config.settings import EXCEL_FILE_PATH
 from app.domain.commands import OptimizeRoutes
 
 from .unit_of_work import AbstractUnitOfWork
-from app.config.settings import EXCEL_FILE_PATH
-from app.adapters.optimization.solver_adapter import MVPSolverAdapter
 
 
-async def optimize_routes_handler(command: OptimizeRoutes, uow):
+async def _ensure_route_dependencies(uow: AbstractUnitOfWork, routes: list) -> None:
+    from app.adapters.orm.base import VisitFrequency
+    from app.adapters.orm.service_site import ServiceSite
+    from app.adapters.orm.technician import Technician
+
+    technician_ids = {route.technician_id for route in routes}
+    site_ids = {
+        stop.service_request_id
+        for route in routes
+        for stop in route.stops
+    }
+
+    if technician_ids:
+        existing_tech_ids = set(
+            (
+                await uow.session.execute(
+                    select(Technician.id).where(Technician.id.in_(technician_ids))
+                )
+            ).scalars().all()
+        )
+        missing_tech_ids = technician_ids - existing_tech_ids
+        for technician_id in missing_tech_ids:
+            uow.session.add(
+                Technician(
+                    id=technician_id,
+                    name=f"MVP Tech {str(technician_id)[:8]}",
+                )
+            )
+
+    if site_ids:
+        existing_site_ids = set(
+            (
+                await uow.session.execute(
+                    select(ServiceSite.id).where(ServiceSite.id.in_(site_ids))
+                )
+            ).scalars().all()
+        )
+        missing_site_ids = site_ids - existing_site_ids
+        for site_id in missing_site_ids:
+            uow.session.add(
+                ServiceSite(
+                    id=site_id,
+                    site_code=f"MVP-{str(site_id)[:12]}",
+                    site_name=f"MVP Site {str(site_id)[:8]}",
+                    duration_minutes=60,
+                    visit_frequency=VisitFrequency.X1,
+                )
+            )
+
+
+async def optimize_routes_handler(command: OptimizeRoutes, uow: AbstractUnitOfWork):
     async with uow:
-        # Check existing
         existing = await uow.optimization_tasks.find_in_progress(command.target_date)
         if existing:
             raise ValueError(f"Task for {command.target_date} already in progress")
 
-        # Create task
-        from app.adapters.orm.optimization import OptimizationTask
         from app.adapters.orm.base import TaskStatus
+        from app.adapters.orm.optimization import OptimizationTask
 
         task = OptimizationTask(
             target_date=command.target_date,
@@ -32,21 +82,17 @@ async def optimize_routes_handler(command: OptimizeRoutes, uow):
         await uow.optimization_tasks.add(task)
         await uow.commit()
 
-        # МVP: Run solver synchronously (в production - Dramatiq)
         try:
-            # Update status
             task.status = TaskStatus.PROCESSING
             await uow.commit()
 
-            # Run solver
             adapter = MVPSolverAdapter(str(EXCEL_FILE_PATH))
             routes, dropped = adapter.optimize_week(command.target_date)
 
-            # Save routes
+            await _ensure_route_dependencies(uow, routes)
             for route in routes:
                 await uow.routes.add(route)
 
-            # Update task
             task.status = TaskStatus.SUCCESS
             task.routes_created = len(routes)
             task.sites_unassigned = len(dropped)
@@ -61,8 +107,8 @@ async def optimize_routes_handler(command: OptimizeRoutes, uow):
 
 
 async def get_task_status_handler(
-        task_id: UUID,
-        uow: AbstractUnitOfWork,
+    task_id: UUID,
+    uow: AbstractUnitOfWork,
 ) -> dict:
     """Get status of optimization task."""
     async with uow:

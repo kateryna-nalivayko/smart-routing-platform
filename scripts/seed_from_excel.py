@@ -1,186 +1,180 @@
-"""
-scripts/seed_from_excel.py
-
-Завантажує дані з Excel файлу в базу даних.
-ОДИН РАЗ виконується для наповнення БД.
-"""
-
+import argparse
 import asyncio
 import sys
+from datetime import time
 from pathlib import Path
-from decimal import Decimal
+from uuid import uuid4
 
-# Add project root to path
+from sqlalchemy import delete
+
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from app.adapters.optimization.excel_oasis_loader import load_oasis_exterior_excel
-from app.service_layer.unit_of_work import SqlAlchemyUnitOfWork
-from app.domain.aggregates import Technician, ServiceSite, ServiceRequest
-from app.domain.value_objects import (
-    Location, Skill, SkillLevel, WorkingHours, DayOfWeek,
-    TimeWindow, VisitFrequency, TechnicianCapabilities
-)
+from app.adapters.optimization.excel_oasis_loader import DAY_CAP, WEEKDAYS, load_oasis_exterior_excel
+from app.adapters.orm import OptimizationTask, Route, RouteStop, ServiceSite, ServiceTimeWindow, Technician
+from app.adapters.orm.base import DayOfWeek, StartPoint, TaskStatus, TransportMode, VisitFrequency
+from app.service_layer.unit_of_work import DEFAULT_SESSION_FACTORY
 
 
-async def seed_technicians_from_excel(excel_path: str):
-    """Наповнити БД техніками з Excel."""
-    sites, techs = load_oasis_exterior_excel(excel_path)
+def minutes_to_time(value: int | None) -> time | None:
+    if value is None:
+        return None
+    hours = value // 60
+    minutes = value % 60
+    return time(hour=hours, minute=minutes)
 
-    async with SqlAlchemyUnitOfWork(async_session_factory) as uow:
-        print(f"📊 Loaded {len(techs)} technicians from Excel")
 
-        for oasis_tech in techs:
-            # Parse skills
-            skills = frozenset(
-                Skill(
-                    skill_type=s.split('-')[0].strip() if '-' in s else s.strip(),
-                    level=SkillLevel.SENIOR  # Default
+def map_visit_frequency(freq: int) -> VisitFrequency:
+    if freq <= 1:
+        return VisitFrequency.X1
+    if freq == 2:
+        return VisitFrequency.X2
+    if freq == 3:
+        return VisitFrequency.X3
+    if freq == 4:
+        return VisitFrequency.X4
+    return VisitFrequency.X5
+
+
+def map_day_of_week(day_key: str) -> DayOfWeek:
+    mapping = {
+        "mon": DayOfWeek.MONDAY,
+        "tue": DayOfWeek.TUESDAY,
+        "wed": DayOfWeek.WEDNESDAY,
+        "thu": DayOfWeek.THURSDAY,
+        "fri": DayOfWeek.FRIDAY,
+        "sat": DayOfWeek.SATURDAY,
+        "sun": DayOfWeek.SUNDAY,
+    }
+    return mapping[day_key]
+
+
+async def truncate_tables(session) -> None:
+    await session.execute(delete(RouteStop))
+    await session.execute(delete(Route))
+    await session.execute(delete(ServiceTimeWindow))
+    await session.execute(delete(ServiceSite))
+    await session.execute(delete(Technician))
+    await session.execute(delete(OptimizationTask).where(OptimizationTask.status != TaskStatus.PROCESSING))
+
+
+async def seed_from_excel(excel_path: Path, truncate: bool, dry_run: bool) -> None:
+    sites, techs = load_oasis_exterior_excel(str(excel_path))
+
+    print(f"Loaded from Excel: technicians={len(techs)}, service_sites={len(sites)}")
+
+    if dry_run:
+        print("Dry run mode: no changes will be written to database")
+        return
+
+    async with DEFAULT_SESSION_FACTORY() as session:
+        if truncate:
+            await truncate_tables(session)
+            print("Existing data was truncated")
+
+        for row in techs:
+            technician = Technician(
+                id=uuid4(),
+                name=row.name,
+                office_address=row.office_address,
+                starts_from=StartPoint.OFFICE,
+                finishes_at=StartPoint.OFFICE,
+                transport_mode=TransportMode.CAR_VAN,
+                monday_start=minutes_to_time(row.shift_from.get("mon")),
+                monday_end=minutes_to_time(row.shift_to.get("mon")),
+                tuesday_start=minutes_to_time(row.shift_from.get("tue")),
+                tuesday_end=minutes_to_time(row.shift_to.get("tue")),
+                wednesday_start=minutes_to_time(row.shift_from.get("wed")),
+                wednesday_end=minutes_to_time(row.shift_to.get("wed")),
+                thursday_start=minutes_to_time(row.shift_from.get("thu")),
+                thursday_end=minutes_to_time(row.shift_to.get("thu")),
+                friday_start=minutes_to_time(row.shift_from.get("fri")),
+                friday_end=minutes_to_time(row.shift_to.get("fri")),
+                saturday_start=minutes_to_time(row.shift_from.get("sat")),
+                saturday_end=minutes_to_time(row.shift_to.get("sat")),
+                sunday_start=minutes_to_time(row.shift_from.get("sun")),
+                sunday_end=minutes_to_time(row.shift_to.get("sun")),
+                max_hours_per_day=row.max_hours_day,
+                max_hours_per_week=row.max_hours_week,
+                break_duration_minutes=row.min_break_min,
+                break_earliest_start=minutes_to_time(row.break_not_earlier),
+                break_latest_start=minutes_to_time(row.break_not_later),
+                can_do_physically_demanding=row.can_phys,
+                comfortable_with_heights=row.can_heights,
+                certified_with_lift=row.can_lift,
+                has_pesticide_certification=row.can_pesticides,
+                is_citizen=row.is_citizen,
+                is_active=True,
+            )
+            session.add(technician)
+
+        for idx, row in enumerate(sites, start=1):
+            service_site = ServiceSite(
+                id=uuid4(),
+                site_code=f"SITE-{idx:04d}",
+                site_name=row.location_name,
+                address=row.address,
+                duration_minutes=max(1, row.duration_min or 60),
+                visit_frequency=map_visit_frequency(row.visit_frequency),
+                is_physically_demanding=row.physically_demanding,
+                requires_work_at_heights=row.work_at_heights,
+                requires_lift_usage=row.requires_lift,
+                requires_pesticide_application=row.requires_pesticides,
+                requires_citizen_technician=row.requires_citizen,
+                requires_permit=False,
+            )
+
+            for day_key in WEEKDAYS:
+                tw_from = row.tw_from.get(day_key)
+                tw_to = row.tw_to.get(day_key)
+                if tw_from is None or tw_to is None:
+                    continue
+                start_time = minutes_to_time(tw_from)
+                end_time = minutes_to_time(tw_to)
+                if start_time is None or end_time is None or start_time >= end_time:
+                    continue
+                service_site.time_windows.append(
+                    ServiceTimeWindow(
+                        id=uuid4(),
+                        day_of_week=map_day_of_week(day_key),
+                        start_time=start_time,
+                        end_time=end_time,
+                    )
                 )
-                for s in oasis_tech.skills
-            )
 
-            # Home location (fake if not provided)
-            home_location = Location(
-                latitude=Decimal("40.7128"),  # NYC fake
-                longitude=Decimal("-74.0060")
-            )
+            session.add(service_site)
 
-            # Office location (fake if not provided)
-            office_location = Location(
-                latitude=Decimal("40.7580"),
-                longitude=Decimal("-73.9855")
-            )
+        await session.commit()
 
-            # Working hours (fake - Mon-Fri 9-17)
-            working_hours = {
-                DayOfWeek.MONDAY: WorkingHours(start_minutes=540, end_minutes=1020),
-                DayOfWeek.TUESDAY: WorkingHours(start_minutes=540, end_minutes=1020),
-                DayOfWeek.WEDNESDAY: WorkingHours(start_minutes=540, end_minutes=1020),
-                DayOfWeek.THURSDAY: WorkingHours(start_minutes=540, end_minutes=1020),
-                DayOfWeek.FRIDAY: WorkingHours(start_minutes=540, end_minutes=1020),
-            }
-
-            # Capabilities
-            capabilities = TechnicianCapabilities(
-                can_work_at_heights=oasis_tech.can_heights,
-                can_use_lift=oasis_tech.can_lift,
-                can_apply_pesticides=oasis_tech.can_pesticides,
-                is_citizen=oasis_tech.is_citizen,
-                is_physically_demanding=oasis_tech.can_phys,
-            )
-
-            # Create Domain Technician
-            tech = Technician(
-                name=oasis_tech.name,
-                home_location=home_location,
-                office_location=office_location,
-                skills=skills,
-                working_hours=working_hours,
-                capabilities=capabilities,
-            )
-
-            await uow.technicians.add(tech)
-            print(f"  ✅ Added: {tech.name}")
-
-        await uow.commit()
-        print(f"🎉 Successfully added {len(techs)} technicians!")
+    print("Seed completed successfully")
 
 
-async def seed_service_sites_from_excel(excel_path: str):
-    """Наповнити БД сервісними сайтами з Excel."""
-    sites, _ = load_oasis_exterior_excel(excel_path)
-
-    async with SqlAlchemyUnitOfWork(async_session_factory) as uow:
-        print(f"📊 Loaded {len(sites)} service sites from Excel")
-
-        for oasis_site in sites:
-            # Location (fake if not provided)
-            location = Location(
-                latitude=Decimal("40.7128"),
-                longitude=Decimal("-74.0060")
-            )
-
-            # Required skill
-            required_skill = None
-            if oasis_site.skill_requirement:
-                required_skill = Skill(
-                    skill_type=oasis_site.skill_requirement.split('-')[0].strip(),
-                    level=SkillLevel.JUNIOR
-                )
-
-            # Time windows (fake - Mon-Fri 8-18)
-            time_windows = {
-                DayOfWeek.MONDAY: TimeWindow(start_minutes=480, end_minutes=1080),
-                DayOfWeek.TUESDAY: TimeWindow(start_minutes=480, end_minutes=1080),
-                DayOfWeek.WEDNESDAY: TimeWindow(start_minutes=480, end_minutes=1080),
-                DayOfWeek.THURSDAY: TimeWindow(start_minutes=480, end_minutes=1080),
-                DayOfWeek.FRIDAY: TimeWindow(start_minutes=480, end_minutes=1080),
-            }
-
-            # Visit frequency
-            freq_map = {
-                1: VisitFrequency.WEEKLY,
-                2: VisitFrequency.TWICE_WEEKLY,
-                3: VisitFrequency.THREE_TIMES_WEEKLY,
-                5: VisitFrequency.DAILY,
-            }
-            visit_frequency = freq_map.get(oasis_site.visit_frequency, VisitFrequency.WEEKLY)
-
-            # Create Domain ServiceSite
-            site = ServiceSite(
-                site_code=oasis_site.location_name[:50],  # Max 50 chars
-                location=location,
-                required_skill=required_skill,
-                time_windows=time_windows,
-                visit_frequency=visit_frequency,
-                service_duration_minutes=oasis_site.duration_min or 60,
-                requires_permit=False,  # Default
-                requires_multiple_technicians=oasis_site.techs_needed > 1,
-            )
-
-            await uow.service_sites.add(site)
-            print(f"  ✅ Added: {site.site_code}")
-
-        await uow.commit()
-        print(f"🎉 Successfully added {len(sites)} service sites!")
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Seed PostgreSQL from OASIS Excel")
+    parser.add_argument(
+        "--excel",
+        type=Path,
+        default=Path("data/Routing_pilot_data_input_FINAL.xlsx"),
+        help="Path to Excel file",
+    )
+    parser.add_argument(
+        "--truncate",
+        action="store_true",
+        help="Delete existing entities before seed",
+    )
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Validate input without writing to DB",
+    )
+    return parser.parse_args()
 
 
-async def main():
-    """Main entry point."""
-    print("=" * 60)
-    print("🌱 SEED DATABASE FROM EXCEL")
-    print("=" * 60)
+async def main() -> None:
+    args = parse_args()
+    if not args.excel.exists():
+        raise FileNotFoundError(f"Excel file not found: {args.excel}")
 
-    # Path to Excel file
-    excel_path = "data/Routing_pilot_data_input__Oasis__-_exterior_only_-_FINAL.xlsx"
-
-    if not Path(excel_path).exists():
-        print(f"❌ Excel file not found: {excel_path}")
-        print("   Copy the file to data/ folder first!")
-        sys.exit(1)
-
-    try:
-        # Seed technicians
-        print("\n1️⃣ Seeding Technicians...")
-        await seed_technicians_from_excel(excel_path)
-
-        # Seed service sites
-        print("\n2️⃣ Seeding Service Sites...")
-        await seed_service_sites_from_excel(excel_path)
-
-        print("\n" + "=" * 60)
-        print("✅ DATABASE SEEDED SUCCESSFULLY!")
-        print("=" * 60)
-        print("\nNext steps:")
-        print("1. Start API: uvicorn app.entrypoints.api.main:app --reload")
-        print("2. Open: http://localhost:8000/docs")
-        print("3. Try: POST /api/v1/optimize")
-
-    except Exception as e:
-        print(f"\n❌ ERROR: {e}")
-        import traceback
-        traceback.print_exc()
-        sys.exit(1)
+    await seed_from_excel(args.excel, truncate=args.truncate, dry_run=args.dry_run)
 
 
 if __name__ == "__main__":

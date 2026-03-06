@@ -31,7 +31,7 @@ async def create_optimization(request: OptimizeRequest):
 
     task_id = await optimize_routes_handler(command, uow)
 
-    return {"task_id": task_id, "status": "queud"}
+    return {"task_id": task_id, "status": "queued"}
 
 
 

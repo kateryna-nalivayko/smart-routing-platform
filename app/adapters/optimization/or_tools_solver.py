@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from datetime import date, datetime, timedelta
-from typing import Protocol, Optional
+from typing import Protocol
 
 try:
     from ortools.constraint_solver import pywrapcp, routing_enums_pb2
@@ -14,8 +14,8 @@ except Exception:  # pragma: no cover
 class LocationRef:
     """Use address always; optionally lat/lon if you have them."""
     address: str
-    lat: Optional[float] = None
-    lon: Optional[float] = None
+    lat: float | None = None
+    lon: float | None = None
 
 
 @dataclass(frozen=True)
@@ -58,7 +58,7 @@ class VisitDTO:
     avoid_techs: list[str]
 
     # If not None -> multi-tech synchronized group
-    group_id: Optional[str] = None
+    group_id: str | None = None
 
 
 @dataclass(frozen=True)
@@ -235,6 +235,12 @@ class OrToolsSolver:
         if not techs:
             return [], [v.id for v in visits]
 
+        max_visits_for_solve = max(30, len(techs) * 8)
+        overflow_visit_ids: list[str] = []
+        if len(visits) > max_visits_for_solve:
+            overflow_visit_ids = [v.id for v in visits[max_visits_for_solve:]]
+            visits = visits[:max_visits_for_solve]
+
         # For now: assume one common depot (office). Builder usually sets this.
         depot = techs[0].start
         locations: list[LocationRef] = [depot] + [v.location for v in visits]
@@ -317,7 +323,7 @@ class OrToolsSolver:
             # eligibility
             allowed = _eligible_vehicle_ids(v, techs)
             if allowed:
-                routing.SetAllowedVehiclesForIndex(allowed, idx)
+                routing.VehicleVar(idx).SetValues(sorted(set(allowed + [-1])))
             # else: leave unrestricted but droppable (will likely drop due to penalty)
 
             # droppable
@@ -337,7 +343,6 @@ class OrToolsSolver:
             first = idxs[0]
             for other in idxs[1:]:
                 solver.Add(time_dim.CumulVar(other) == time_dim.CumulVar(first))
-                solver.Add(routing.VehicleVar(other) != routing.VehicleVar(first))
                 solver.Add(routing.ActiveVar(other) == routing.ActiveVar(first))
 
         # Solve
@@ -348,16 +353,13 @@ class OrToolsSolver:
 
         solution = routing.SolveWithParameters(sp)
         if solution is None:
-            return [], [v.id for v in visits]
+            fallback_routes, fallback_dropped = self._solve_day_greedy(day_plan, visits)
+            return fallback_routes, [*overflow_visit_ids, *fallback_dropped]
 
-        # Dropped list
         dropped: list[str] = []
-        active_ids: set[str] = set()
         for j, v in enumerate(visits):
             idx = manager.NodeToIndex(1 + j)
-            if solution.Value(routing.ActiveVar(idx)) == 1:
-                active_ids.add(v.id)
-            else:
+            if solution.Value(routing.NextVar(idx)) == idx:
                 dropped.append(v.id)
 
         # Extract routes
@@ -372,24 +374,98 @@ class OrToolsSolver:
                 node = manager.IndexToNode(idx)
                 if node != depot_index:
                     v = visits[node - 1]
-                    if v.id in active_ids:
-                        arr_min = solution.Value(time_dim.CumulVar(idx))
-                        dep_min = arr_min + int(v.service_min)
+                    arr_min = solution.Value(time_dim.CumulVar(idx))
+                    dep_min = arr_min + int(v.service_min)
 
-                        arr_dt = datetime.combine(base_day, datetime.min.time()) + timedelta(minutes=arr_min)
-                        dep_dt = datetime.combine(base_day, datetime.min.time()) + timedelta(minutes=dep_min)
+                    arr_dt = datetime.combine(base_day, datetime.min.time()) + timedelta(minutes=arr_min)
+                    dep_dt = datetime.combine(base_day, datetime.min.time()) + timedelta(minutes=dep_min)
 
-                        stops.append(
-                            StopResult(
-                                visit_id=v.id,
-                                site_name=v.site_name,
-                                arrival=arr_dt,
-                                departure=dep_dt,
-                            )
+                    stops.append(
+                        StopResult(
+                            visit_id=v.id,
+                            site_name=v.site_name,
+                            arrival=arr_dt,
+                            departure=dep_dt,
                         )
+                    )
 
                 idx = solution.Value(routing.NextVar(idx))
 
+            if stops:
+                routes.append(
+                    RouteResult(
+                        technician_id=tech.id,
+                        technician_name=tech.name,
+                        stops=stops,
+                    )
+                )
+
+        if not routes and len(dropped) == len(visits):
+            fallback_routes, fallback_dropped = self._solve_day_greedy(day_plan, visits)
+            return fallback_routes, [*overflow_visit_ids, *fallback_dropped]
+
+        return routes, [*overflow_visit_ids, *dropped]
+
+    def _solve_day_greedy(
+        self,
+        day_plan: DayPlanRequest,
+        visits: list[VisitDTO],
+    ) -> tuple[list[RouteResult], list[str]]:
+        techs = day_plan.technicians
+        base_day = day_plan.date
+        travel_between = 15
+
+        tech_state = {}
+        for idx, tech in enumerate(techs):
+            tech_state[idx] = {
+                "time": tech.shift_from_min,
+                "stops": [],
+            }
+
+        dropped: list[str] = []
+        sorted_visits = sorted(visits, key=lambda v: (v.tw_to_min, v.tw_from_min, v.service_min))
+
+        for visit in sorted_visits:
+            assigned = False
+            allowed = _eligible_vehicle_ids(visit, techs)
+            if not allowed:
+                dropped.append(visit.id)
+                continue
+
+            for vehicle_id in allowed:
+                state = tech_state[vehicle_id]
+                tech = techs[vehicle_id]
+                arrival = max(state["time"] + travel_between, visit.tw_from_min)
+                departure = arrival + visit.service_min
+                worked = departure - tech.shift_from_min
+
+                if departure > visit.tw_to_min:
+                    continue
+                if departure > tech.shift_to_min:
+                    continue
+                if worked > tech.max_work_min_today:
+                    continue
+
+                arr_dt = datetime.combine(base_day, datetime.min.time()) + timedelta(minutes=arrival)
+                dep_dt = datetime.combine(base_day, datetime.min.time()) + timedelta(minutes=departure)
+                state["stops"].append(
+                    StopResult(
+                        visit_id=visit.id,
+                        site_name=visit.site_name,
+                        arrival=arr_dt,
+                        departure=dep_dt,
+                    )
+                )
+                state["time"] = departure
+                assigned = True
+                break
+
+            if not assigned:
+                dropped.append(visit.id)
+
+        routes: list[RouteResult] = []
+        for vehicle_id, tech in enumerate(techs):
+            stops = tech_state[vehicle_id]["stops"]
             if stops:
                 routes.append(
                     RouteResult(

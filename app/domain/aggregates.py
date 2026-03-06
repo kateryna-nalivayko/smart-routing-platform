@@ -58,7 +58,6 @@ from app.domain.value_objects import (
     WeeklySchedule,
 )
 
-
 # =============================================================================
 # 1. VALUE OBJECTS
 # 3. AGGREGATES (Aggregate Roots)
@@ -68,9 +67,17 @@ class DomainEvent:
     pass
 
 
+def _is_blank_identifier(value: object) -> bool:
+    if value is None:
+        return True
+    if isinstance(value, str):
+        return not value.strip()
+    return False
+
+
 @dataclass
 class Technician:
-    id: str
+    id: str | UUID
     name: str
     home_location: Location
     office_location: Location | None
@@ -98,7 +105,7 @@ class Technician:
     _events: list[DomainEvent] = field(default_factory=list, init=False, repr=False)
 
     def __post_init__(self):
-        if not self.id or not self.id.strip():
+        if _is_blank_identifier(self.id):
             raise ValueError("Technician ID cannot be empty")
         if not self.name or not self.name.strip():
             raise ValueError("Technician name cannot be empty")
@@ -196,7 +203,7 @@ class ServiceRequest:
 
     Mapped з Excel sheet "Service sites"
     """
-    id: str
+    id: str | UUID
     site_code: str
     site_name: str | None
     location: Location
@@ -235,7 +242,7 @@ class ServiceRequest:
     _events: list[DomainEvent] = field(default_factory=list, init=False, repr=False)
 
     def __post_init__(self):
-        if not self.id or not self.id.strip():
+        if _is_blank_identifier(self.id):
             raise ValueError("Service Request ID cannot be empty")
         if not self.required_skills:
             raise ValueError("Service request must require at least one skill")
@@ -442,8 +449,8 @@ class RouteStop:
 
 @dataclass
 class Route:
-    id: str
-    technician_id: str
+    id: str | UUID
+    technician_id: str | UUID
     date: date
     stops: list[RouteStop] = field(default_factory=list)
 
@@ -454,6 +461,7 @@ class Route:
     optimization_metrics: OptimizationMetrics | None = None
     total_distance: Distance | None = None
     total_duration_minutes: int | None = None
+    total_travel_time_minutes: int | None = None
 
     # Timestamps
     created_at: datetime = field(default_factory=datetime.utcnow)
@@ -466,9 +474,9 @@ class Route:
     _events: list[DomainEvent] = field(default_factory=list, init=False, repr=False)
 
     def __post_init__(self):
-        if not self.id or not self.id.strip():
+        if _is_blank_identifier(self.id):
             raise ValueError("Route ID cannot be empty")
-        if not self.technician_id or not self.technician_id.strip():
+        if _is_blank_identifier(self.technician_id):
             raise ValueError("Technician ID cannot be empty")
 
     def add_stop(
@@ -491,12 +499,10 @@ class Route:
 
         stop = RouteStop(
             service_request_id=service_request.id,
-            location=service_request.location,
             arrival_time=arrival_time,
             departure_time=departure_time,
             sequence_number=sequence_number,
-            service_duration=service_request.duration,
-            travel_time_from_previous=travel_time_from_previous,
+            travel_time_from_previous=Duration(travel_time_from_previous) if travel_time_from_previous is not None else None,
             distance_from_previous=distance_from_previous
         )
 

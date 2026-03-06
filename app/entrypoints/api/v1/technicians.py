@@ -1,11 +1,10 @@
 from datetime import time
-from typing import Optional, Dict, List
 from uuid import UUID
 
 from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, Field
 
-from app.domain.commands import CreateTechnician, UpdateTechnician, DeactivateTechnician
+from app.domain.commands import CreateTechnician, DeactivateTechnician
 from app.entrypoints.api.dependencies import get_uow
 from app.service_layer.unit_of_work import AbstractUnitOfWork
 
@@ -24,13 +23,13 @@ class TimeWindowSchema(BaseModel):
 class CreateTechnicianRequest(BaseModel):
     """Створення техніка."""
     name: str = Field(..., min_length=1, max_length=255)
-    home_latitude: Optional[float] = None
-    home_longitude: Optional[float] = None
-    office_latitude: Optional[float] = None
-    office_longitude: Optional[float] = None
+    home_latitude: float | None = None
+    home_longitude: float | None = None
+    office_latitude: float | None = None
+    office_longitude: float | None = None
 
     # Skills
-    skills: List[str] = Field(default_factory=list, description="e.g., ['exterior - senior', 'interior - medior']")
+    skills: list[str] = Field(default_factory=list, description="e.g., ['exterior - senior', 'interior - medior']")
 
     # Capabilities
     can_work_at_heights: bool = False
@@ -60,7 +59,7 @@ class TechnicianResponse(BaseModel):
     """Відповідь з даними техніка."""
     id: UUID
     name: str
-    skills: List[str]
+    skills: list[str]
     is_active: bool
 
     class Config:
@@ -109,7 +108,7 @@ async def create_technician(
         )
 
 
-@router.get("/", response_model=List[TechnicianResponse])
+@router.get("/", response_model=list[TechnicianResponse])
 async def list_technicians(
         active_only: bool = True,
         uow: AbstractUnitOfWork = Depends(get_uow),

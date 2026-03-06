@@ -72,3 +72,174 @@
 
 ## 📁 Документація
 Усі схеми та вихідні коди PlantUML знаходяться в директорії: `docs/architecture/`
+---
+
+## How to run
+
+### 1. Prerequisites
+- Python `3.14.x`
+- `uv` (Astral) для керування залежностями
+- PostgreSQL `18+` (локально або через Docker)
+- Docker + Docker Compose (рекомендовано для швидкого старту)
+- RabbitMQ: **не обов'язково для поточного MVP**, бо оптимізація зараз виконується синхронно в API-процесі
+
+### 2. Environment variables
+Створіть `.env` на основі `.env.example`.
+
+Мінімально потрібні для локального запуску:
+- `POSTGRES_USER`
+- `POSTGRES_PASSWORD`
+- `POSTGRES_DB`
+- `DB_HOST`
+- `DB_PORT`
+
+Опційні (для майбутнього async/infra-режиму):
+- `RABBITMQ_URL`
+- `AWS_ACCESS_KEY_ID`
+- `AWS_SECRET_ACCESS_KEY`
+- `AWS_DEFAULT_REGION`
+
+### 3. Setup
+
+```bash
+# 1) встановити залежності
+uv sync
+
+# 2) підняти PostgreSQL (варіант через Docker)
+docker compose up -d postgres
+
+# 3) застосувати міграції
+uv run alembic upgrade head
+```
+
+### 4. Execution
+
+#### Варіант A: запуск API (поточний MVP)
+
+```bash
+uv run uvicorn app.entrypoints.api.main:app --host 0.0.0.0 --port 8000 --reload
+```
+
+Swagger UI:
+- `http://localhost:8000/docs`
+
+#### Варіант B: запуск через Docker Compose
+
+```bash
+docker compose up --build app postgres
+```
+
+#### Воркер (Dramatiq)
+У поточній MVP-конфігурації оптимізація виконується синхронно у FastAPI handler, тому окремий Dramatiq worker зараз не є обов'язковим для тестування алгоритму.
+
+Коли async-контур увімкнений, запуск воркера буде окремою командою на кшталт:
+
+```bash
+uv run dramatiq app.entrypoints.api.workers.optimize_worker
+```
+
+### 5. Input/Output example
+
+#### Створення задачі оптимізації
+
+```bash
+curl -X POST "http://localhost:8000/api/v1/optimize" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "target_date": "2026-02-26",
+    "timeout_seconds": 30
+  }'
+```
+
+Приклад відповіді:
+
+```json
+{
+  "task_id": "c3c53b77-e267-4b0b-a2d7-06041a6dd9cb",
+  "status": "queued",
+  "message": "Task queued. Use GET /tasks/c3c53b77-e267-4b0b-a2d7-06041a6dd9cb to check status"
+}
+```
+
+#### Перевірка статусу
+
+```bash
+curl "http://localhost:8000/api/v1/tasks/c3c53b77-e267-4b0b-a2d7-06041a6dd9cb"
+```
+
+Приклад відповіді:
+
+```json
+{
+  "task_id": "c3c53b77-e267-4b0b-a2d7-06041a6dd9cb",
+  "status": "success",
+  "target_date": "2026-02-26",
+  "routes_created": 25,
+  "sites_unassigned": 150,
+  "total_distance_km": null,
+  "error_message": null,
+  "created_at": "2026-03-06T10:31:50.885934Z",
+  "started_at": null,
+  "completed_at": null
+}
+```
+
+### 6. Test data
+В репозиторії вже є тестові дані:
+- `data/Routing_pilot_data_input_FINAL.xlsx`
+
+Оптимізатор у поточному MVP читає саме `Routing_pilot_data_input_FINAL.xlsx`.
+
+### 7. Зручний перегляд побудованих маршрутів
+
+Після створення задачі через `POST /api/v1/optimize` можна отримати детальну розкладку:
+
+```bash
+curl "http://localhost:8000/api/v1/tasks/<task_id>/routes"
+```
+
+Що повертає endpoint:
+- маршрути по даті задачі;
+- техніка, порядок зупинок, часи прибуття/виїзду;
+- `site_code`/`site_name` для кожної зупинки;
+- метрики маршруту (`stops_count`, `total_duration_minutes`, `total_travel_time_minutes`).
+
+Додаткові endpoints:
+- `GET /api/v1/tasks` — список останніх задач оптимізації;
+- `GET /api/v1/routes?target_date=YYYY-MM-DD` — список маршрутів із фільтром по даті.
+
+### 8. Seed даних з Excel
+
+Скрипт для наповнення БД:
+
+```bash
+# перевірити Excel без запису у БД
+uv run python scripts/seed_from_excel.py --dry-run
+
+# повне наповнення (очистити існуючі техніки/сайти/маршрути та завантажити заново)
+uv run python scripts/seed_from_excel.py --truncate
+
+# вказати інший файл
+uv run python scripts/seed_from_excel.py --excel data/Routing_pilot_data_input_FINAL.xlsx --truncate
+```
+
+Скрипт переносимий: після клону на іншому ПК достатньо підняти PostgreSQL, виконати міграції та запустити seed-команду вище.
+
+### 9. Explain endpoint (чому є unassigned)
+
+Для швидкої аналітики причин невключених візитів:
+
+```bash
+curl "http://localhost:8000/api/v1/tasks/<task_id>/explain"
+```
+
+Endpoint повертає:
+- `total_requested_visits`
+- `assigned_estimate`
+- `unassigned_count`
+- bucket-розбивку причин:
+  - `no_eligible_technician`
+  - `overflow_guard_limit`
+  - `optimizer_or_capacity`
+
+Це зручно для демо та первинної діагностики якості плану.
