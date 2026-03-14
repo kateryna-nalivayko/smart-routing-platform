@@ -1,0 +1,76 @@
+{
+  "accounted_constraints": [
+    {
+      "name": "service_time_windows",
+      "status": "accounted",
+      "details": "Visit start times are constrained by site day/time windows in OR-Tools."
+    },
+    {
+      "name": "travel_time_between_points",
+      "status": "accounted",
+      "details": "Travel time is calculated from geocoded coordinates using Haversine distance and average speed."
+    },
+    {
+      "name": "service_duration",
+      "status": "accounted",
+      "details": "Each visit consumes its declared service duration in the time dimension."
+    },
+    {
+      "name": "technician_capabilities_and_skills",
+      "status": "accounted",
+      "details": "Eligibility filters apply skill hierarchy plus physical/heights/lift/pesticide/citizen flags."
+    },
+    {
+      "name": "preferred_and_avoided_technicians",
+      "status": "accounted_with_current_logic",
+      "details": "Preferred technicians are currently treated as a hard allow-list; avoided technicians are hard exclusions."
+    },
+    {
+      "name": "permit_restrictions",
+      "status": "accounted",
+      "details": "If a site requires a permit, only technicians listed in the permit column remain eligible."
+    },
+    {
+      "name": "max_daily_work_time",
+      "status": "accounted",
+      "details": "Route duration per day is bounded by technician shift and max hours per day."
+    },
+    {
+      "name": "multi_tech_same_time_visit",
+      "status": "accounted",
+      "details": "Sites requiring multiple technicians are duplicated into a synchronized group with equal start time and different vehicles."
+    }
+  ],
+  "not_accounted_constraints": [
+    {
+      "name": "weekly_work_limit",
+      "status": "not_accounted",
+      "details": "Maximum hours per week are parsed but not enforced across the whole week."
+    },
+    {
+      "name": "break_window",
+      "status": "not_accounted",
+      "details": "Break duration and allowed break window are parsed but no break interval is inserted into the solver."
+    },
+    {
+      "name": "home_start_finish_modes",
+      "status": "not_accounted",
+      "details": "Current builder routes technicians from office to office; home/either works is not yet modeled."
+    },
+    {
+      "name": "non_consecutive_repeat_visit_rule",
+      "status": "partially_accounted",
+      "details": "Weekly frequency patterns spread some visits across the week, but there is no generic hard rule forbidding day-by-day assignments."
+    },
+    {
+      "name": "hub_and_walk_multimodality",
+      "status": "not_accounted",
+      "details": "Drive-to-hub and walk chains are not modeled in the current solver."
+    },
+    {
+      "name": "multi_week_cycle_2_3_4_week_recurrence",
+      "status": "not_accounted",
+      "details": "The MVP optimizes one work week; long recurring cycle generation is not implemented."
+    }
+  ]
+}

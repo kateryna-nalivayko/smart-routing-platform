@@ -9,8 +9,15 @@ from sqlalchemy import delete
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from app.adapters.optimization.excel_oasis_loader import DAY_CAP, WEEKDAYS, load_oasis_exterior_excel
-from app.adapters.orm import OptimizationTask, Route, RouteStop, ServiceSite, ServiceTimeWindow, Technician
+from app.adapters.optimization.excel_oasis_loader import WEEKDAYS, load_oasis_exterior_excel
+from app.adapters.orm import (
+    OptimizationTask,
+    Route,
+    RouteStop,
+    ServiceSite,
+    ServiceTimeWindow,
+    Technician,
+)
 from app.adapters.orm.base import DayOfWeek, StartPoint, TaskStatus, TransportMode, VisitFrequency
 from app.service_layer.unit_of_work import DEFAULT_SESSION_FACTORY
 

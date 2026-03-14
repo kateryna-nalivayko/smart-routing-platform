@@ -53,6 +53,8 @@ class VisitDTO:
     requires_lift: bool
     requires_pesticides: bool
     requires_citizen: bool
+    requires_permit: bool
+    permit_techs: list[str]
 
     preferred_techs: list[str]
     avoid_techs: list[str]
@@ -171,6 +173,8 @@ def _eligible_vehicle_ids(visit: VisitDTO, techs: list[TechnicianDTO]) -> list[i
         if visit.requires_pesticides and not t.can_pesticides:
             continue
         if visit.requires_citizen and not t.is_citizen:
+            continue
+        if visit.requires_permit and t.name not in visit.permit_techs:
             continue
 
         # matchmaking preferences

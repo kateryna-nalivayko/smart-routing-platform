@@ -4,18 +4,30 @@ service_layer/handlers.py
 Command and Query handlers.
 """
 
+from decimal import Decimal
+from pathlib import Path
 from uuid import UUID
 
 from sqlalchemy import select
 
+from app.adapters.exporters.schedule_export import (
+    write_constraints_json,
+    write_schedule_excel,
+    write_schedule_json,
+)
 from app.adapters.optimization.solver_adapter import MVPSolverAdapter
-from app.config.settings import EXCEL_FILE_PATH
+from app.config.settings import EXCEL_FILE_PATH, OUTPUT_DIR
 from app.domain.commands import OptimizeRoutes
 
 from .unit_of_work import AbstractUnitOfWork
 
 
-async def _ensure_route_dependencies(uow: AbstractUnitOfWork, routes: list) -> None:
+async def _ensure_route_dependencies(
+    uow: AbstractUnitOfWork,
+    routes: list,
+    technician_catalog: dict,
+    site_catalog: dict,
+) -> None:
     from app.adapters.orm.base import VisitFrequency
     from app.adapters.orm.service_site import ServiceSite
     from app.adapters.orm.technician import Technician
@@ -37,10 +49,12 @@ async def _ensure_route_dependencies(uow: AbstractUnitOfWork, routes: list) -> N
         )
         missing_tech_ids = technician_ids - existing_tech_ids
         for technician_id in missing_tech_ids:
+            tech_payload = technician_catalog.get(technician_id, {})
             uow.session.add(
                 Technician(
                     id=technician_id,
-                    name=f"MVP Tech {str(technician_id)[:8]}",
+                    name=tech_payload.get("name") or f"MVP Tech {str(technician_id)[:8]}",
+                    office_address=tech_payload.get("office_address"),
                 )
             )
 
@@ -54,15 +68,28 @@ async def _ensure_route_dependencies(uow: AbstractUnitOfWork, routes: list) -> N
         )
         missing_site_ids = site_ids - existing_site_ids
         for site_id in missing_site_ids:
+            site_payload = site_catalog.get(site_id, {})
             uow.session.add(
                 ServiceSite(
                     id=site_id,
-                    site_code=f"MVP-{str(site_id)[:12]}",
-                    site_name=f"MVP Site {str(site_id)[:8]}",
+                    site_code=site_payload.get("site_code") or f"MVP-{str(site_id)[:12]}",
+                    site_name=site_payload.get("site_name") or f"MVP Site {str(site_id)[:8]}",
+                    address=site_payload.get("address"),
                     duration_minutes=60,
                     visit_frequency=VisitFrequency.X1,
                 )
             )
+
+
+def _write_task_artifacts(
+    task_id: UUID,
+    schedule_rows: list[dict[str, object]],
+    constraints_summary: dict[str, object],
+) -> None:
+    task_dir = Path(OUTPUT_DIR) / str(task_id)
+    write_schedule_json(task_dir / "schedule_log.json", schedule_rows)
+    write_schedule_excel(task_dir / "schedule_log.xlsx", schedule_rows)
+    write_constraints_json(task_dir / "constraints_summary.json", constraints_summary)
 
 
 async def optimize_routes_handler(command: OptimizeRoutes, uow: AbstractUnitOfWork):
@@ -87,15 +114,32 @@ async def optimize_routes_handler(command: OptimizeRoutes, uow: AbstractUnitOfWo
             await uow.commit()
 
             adapter = MVPSolverAdapter(str(EXCEL_FILE_PATH))
-            routes, dropped = adapter.optimize_week(command.target_date)
+            run_result = adapter.optimize_week(command.target_date)
 
-            await _ensure_route_dependencies(uow, routes)
-            for route in routes:
+            await _ensure_route_dependencies(
+                uow,
+                run_result.routes,
+                run_result.technician_catalog,
+                run_result.site_catalog,
+            )
+            for route in run_result.routes:
                 await uow.routes.add(route)
 
+            total_distance_km = sum(
+                (route.total_distance.kilometers for route in run_result.routes if route.total_distance is not None),
+                start=Decimal("0.00"),
+            )
+
+            _write_task_artifacts(
+                task.id,
+                run_result.schedule_rows,
+                run_result.constraints_summary,
+            )
+
             task.status = TaskStatus.SUCCESS
-            task.routes_created = len(routes)
-            task.sites_unassigned = len(dropped)
+            task.routes_created = len(run_result.routes)
+            task.sites_unassigned = len(run_result.dropped_visit_ids)
+            task.total_distance_km = total_distance_km
             await uow.commit()
 
         except Exception as e:

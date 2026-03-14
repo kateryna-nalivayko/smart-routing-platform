@@ -72,6 +72,7 @@
 
 ## 📁 Документація
 Усі схеми та вихідні коди PlantUML знаходяться в директорії: `docs/architecture/`
+- Детальний опис фактичних констрейнтів та роботи OR-Tools: `docs/constraints.md`
 ---
 
 ## How to run
@@ -207,6 +208,14 @@ curl "http://localhost:8000/api/v1/tasks/<task_id>/routes"
 Додаткові endpoints:
 - `GET /api/v1/tasks` — список останніх задач оптимізації;
 - `GET /api/v1/routes?target_date=YYYY-MM-DD` — список маршрутів із фільтром по даті.
+- `GET /api/v1/tasks/<task_id>/schedule-log` — JSON-лог активностей у форматі `date/day_of_week/start_time/end_time/technician_name/location_name/location_to/activity_type`;
+- `GET /api/v1/tasks/<task_id>/constraints` — що з констрейнтів враховано, а що ще ні;
+- `GET /api/v1/tasks/<task_id>/artifacts` — шляхи до згенерованих `schedule_log.json`, `schedule_log.xlsx`, `constraints_summary.json`.
+
+Артефакти також записуються на диск у:
+- `data/output/<task_id>/schedule_log.json`
+- `data/output/<task_id>/schedule_log.xlsx`
+- `data/output/<task_id>/constraints_summary.json`
 
 ### 8. Seed даних з Excel
 
@@ -224,6 +233,125 @@ uv run python scripts/seed_from_excel.py --excel data/Routing_pilot_data_input_F
 ```
 
 Скрипт переносимий: після клону на іншому ПК достатньо підняти PostgreSQL, виконати міграції та запустити seed-команду вище.
+
+### 8.1. Підготовка geocoding cache
+
+Оптимізатор більше не використовує жорсткі `15 хв / 5 км / 50 км / 300 хв` заглушки. Для побудови travel-time matrix потрібні реальні координати адрес.
+
+Варіанти:
+- заповнити `data/geocoding_cache.json` власними координатами;
+- або одноразово прогріти cache через Nominatim:
+
+```bash
+SMART_ROUTING_GEOCODER=nominatim uv run python scripts/build_geocoding_cache.py
+```
+
+Якщо в cache відсутні координати, оптимізація завершиться помилкою з переліком проблемних адрес, а не побудує фіктивний VRP-результат.
+
+### 8.2. Які констрейнти зараз враховуються
+
+Нижче наведено фактичний стан поточного MVP, а не цільову архітектурну ідею.
+
+#### Враховуються
+
+- **Часові вікна локацій**
+  Реалізація: `app/adapters/optimization/or_tools_solver.py`
+  Як саме: для кожного візиту в `Time` dimension задається `SetRange(tw_from, tw_to)`.
+
+- **Тривалість робіт на локації**
+  Реалізація: `app/adapters/optimization/or_tools_solver.py`
+  Як саме: `service_min` додається в transit callback, тобто візит займає реальний час у моделі.
+
+- **Час на дорогу між точками**
+  Реалізація: `app/adapters/optimization/travel_metrics.py`, `app/adapters/geocoding.py`, `app/adapters/optimization/solver_adapter.py`
+  Як саме: адреси переводяться в координати, відстань рахується через Haversine, час у дорозі оцінюється через середню швидкість.
+
+- **Навички та capability-обмеження техніків**
+  Реалізація: `app/adapters/optimization/or_tools_solver.py`
+  Як саме: `_eligible_vehicle_ids()` відсікає техніків без потрібного skill level, а також без допуску до фізичних/висотних/ліфтових/пестицидних/громадянських вимог.
+
+- **Permit-обмеження**
+  Реалізація: `app/adapters/optimization/excel_oasis_loader.py`, `app/adapters/optimization/oasis_week_builder.py`, `app/adapters/optimization/or_tools_solver.py`
+  Як саме: якщо `Permit required = yes`, у допустимих кандидатах залишаються лише техніки з колонки `Techs with permit`.
+
+- **Обмеження по робочому дню техніка**
+  Реалізація: `app/adapters/optimization/or_tools_solver.py`
+  Як саме: враховуються `shift_from`, `shift_to`, а також `max_work_min_today`.
+
+- **Візити, де потрібно кілька техніків одночасно**
+  Реалізація: `app/adapters/optimization/oasis_week_builder.py`, `app/adapters/optimization/or_tools_solver.py`
+  Як саме: для таких локацій створюється група копій візиту з одним `group_id`, а solver примушує їх стартувати одночасно на різних машинах.
+
+#### Враховуються частково
+
+- **Preferred / avoid technicians**
+  Реалізація: `app/adapters/optimization/or_tools_solver.py`
+  Поточна логіка: `avoid` працює як жорстке виключення, а `preferred` зараз поводиться як allow-list, тобто якщо preferred список заданий, інші техніки не розглядаються. Це сильніше, ніж класичний soft-constraint.
+
+- **Частота повторних візитів протягом тижня**
+  Реалізація: `app/adapters/optimization/oasis_week_builder.py`
+  Поточна логіка: builder розкладає `1x..5x` по фіксованих day-pattern, але немає універсального hard-rule на кшталт «два візити не можуть стояти день за днем» для всіх кейсів.
+
+#### Поки не враховуються
+
+- **Перерва техніка**
+  Дані парсяться з Excel, але в solver окремий break interval не вставляється.
+  Файли: `app/adapters/optimization/excel_oasis_loader.py`, `app/adapters/optimization/or_tools_solver.py`
+
+- **Максимум годин на тиждень**
+  Дані зчитуються, але обмеження не контролюється на рівні всієї тижневої оптимізації.
+  Файли: `app/adapters/optimization/excel_oasis_loader.py`, `app/adapters/optimization/oasis_week_builder.py`
+
+- **Старт/фініш з дому**
+  У поточному MVP маршрути будуються від `office` до `office`.
+  Файли: `app/adapters/optimization/oasis_week_builder.py`
+
+- **Мультимодальність `drive to hub and then walk`**
+  Опція є в даних, але окремого математичного режиму для parking hub + walking cluster поки немає.
+
+- **Багатотижневий цикл 2/3/4 тижні**
+  Поточний оптимізатор планує один робочий тиждень, без LCM-циклів на 12 тижнів.
+
+### 8.3. Формат вихідного JSON-логу
+
+Після успішної оптимізації формується файл:
+- `data/output/<task_id>/schedule_log.json`
+
+Щоб згенерувати артефакти напряму з Excel без запуску API, можна використати:
+
+```bash
+uv run python scripts/generate_schedule_artifacts.py --week-start 2026-03-16
+```
+
+Кожен запис має формат:
+
+```json
+{
+  "date": "2026-03-16",
+  "day_of_week": "Monday",
+  "start_time": "08:00",
+  "end_time": "08:25",
+  "technician_name": "Luis Miguel",
+  "location_name": "Office",
+  "location_to": "KY-001-INT",
+  "activity_type": "Commute"
+}
+```
+
+Типи `activity_type`, які зараз повертаються:
+- `Commute`
+- `Interior`
+- `Exterior`
+- `Floral`
+- `Service`
+
+### 8.4. Де дивитися результат
+
+- API-лог: `GET /api/v1/tasks/<task_id>/schedule-log`
+- Excel-таблиця: `data/output/<task_id>/schedule_log.xlsx`
+- Зведення по констрейнтах: `GET /api/v1/tasks/<task_id>/constraints`
+- Шляхи до артефактів: `GET /api/v1/tasks/<task_id>/artifacts`
+
 
 ### 9. Explain endpoint (чому є unassigned)
 

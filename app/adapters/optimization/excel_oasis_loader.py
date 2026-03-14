@@ -24,6 +24,9 @@ class OasisSiteRow:
     requires_lift: bool
     requires_pesticides: bool
     requires_citizen: bool
+    requires_permit: bool
+    permit_difficulty: str | None
+    permit_techs: list[str]
     preferred_techs: list[str]
     avoid_techs: list[str]
 
@@ -71,6 +74,13 @@ def _parse_yes_no(v) -> bool:
         return False
     s = str(v).strip().lower()
     return s in {"yes", "y", "true", "1"}
+
+
+def _parse_optional_text(v) -> str | None:
+    if pd.isna(v):
+        return None
+    text = str(v).strip()
+    return text or None
 
 
 def _parse_duration_min(v) -> int:
@@ -171,6 +181,9 @@ def load_oasis_exterior_excel(xlsx_path: str) -> tuple[list[OasisSiteRow], list[
                 requires_lift=_parse_yes_no(r.get("Requires using the lift")),
                 requires_pesticides=_parse_yes_no(r.get("Requires application of pesticides")),
                 requires_citizen=_parse_yes_no(r.get("Requires a citizen technician")),
+                requires_permit=_parse_yes_no(r.get("Permit required")),
+                permit_difficulty=_parse_optional_text(r.get("How difficult to get a permit")),
+                permit_techs=_split_names(r.get("Techs with permit")),
                 preferred_techs=_split_names(r.get("Should be serviced by specific technician(s)")),
                 avoid_techs=_split_names(r.get("Should NOT be serviced by the following technician(s)")),
             )

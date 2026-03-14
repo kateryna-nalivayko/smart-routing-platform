@@ -103,3 +103,6 @@ alembic.ini.local
 
 # Ruff
 .ruff_cache/
+
+
+/pytest-cache-files-hg3larqi

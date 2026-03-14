@@ -1,0 +1,4052 @@
+[
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "07:03",
+    "end_time": "08:15",
+    "technician_name": "Darwin",
+    "location_name": "Office",
+    "location_to": "JLL-1200 New Hampshire",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "08:15",
+    "end_time": "09:15",
+    "technician_name": "Darwin",
+    "location_name": "JLL-1200 New Hampshire",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "09:30",
+    "end_time": "09:30",
+    "technician_name": "Darwin",
+    "location_name": "JLL-1200 New Hampshire",
+    "location_to": "JLL-1200 New Hampshire",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "09:30",
+    "end_time": "10:30",
+    "technician_name": "Darwin",
+    "location_name": "JLL-1200 New Hampshire",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "10:45",
+    "end_time": "10:45",
+    "technician_name": "Darwin",
+    "location_name": "JLL-1200 New Hampshire",
+    "location_to": "JLL-1200 New Hampshire",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "10:45",
+    "end_time": "11:45",
+    "technician_name": "Darwin",
+    "location_name": "JLL-1200 New Hampshire",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "11:58",
+    "end_time": "12:00",
+    "technician_name": "Darwin",
+    "location_name": "JLL-1200 New Hampshire",
+    "location_to": "TRAN-1800 K St NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "12:00",
+    "end_time": "13:00",
+    "technician_name": "Darwin",
+    "location_name": "TRAN-1800 K St NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "13:15",
+    "end_time": "13:15",
+    "technician_name": "Darwin",
+    "location_name": "TRAN-1800 K St NW",
+    "location_to": "TRAN-1800 K St NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "13:15",
+    "end_time": "14:15",
+    "technician_name": "Darwin",
+    "location_name": "TRAN-1800 K St NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "14:30",
+    "end_time": "14:30",
+    "technician_name": "Darwin",
+    "location_name": "TRAN-1800 K St NW",
+    "location_to": "TRAN-1800 K St NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "14:30",
+    "end_time": "15:30",
+    "technician_name": "Darwin",
+    "location_name": "TRAN-1800 K St NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "15:30",
+    "end_time": "16:43",
+    "technician_name": "Darwin",
+    "location_name": "TRAN-1800 K St NW",
+    "location_to": "Office",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "07:02",
+    "end_time": "08:15",
+    "technician_name": "Donald",
+    "location_name": "Office",
+    "location_to": "RR 1150 18th",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "08:15",
+    "end_time": "08:30",
+    "technician_name": "Donald",
+    "location_name": "RR 1150 18th",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "08:45",
+    "end_time": "08:45",
+    "technician_name": "Donald",
+    "location_name": "RR 1150 18th",
+    "location_to": "RR 1150 18th",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "08:45",
+    "end_time": "09:00",
+    "technician_name": "Donald",
+    "location_name": "RR 1150 18th",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "09:15",
+    "end_time": "09:15",
+    "technician_name": "Donald",
+    "location_name": "RR 1150 18th",
+    "location_to": "RR 1150 18th",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "09:15",
+    "end_time": "09:30",
+    "technician_name": "Donald",
+    "location_name": "RR 1150 18th",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "09:42",
+    "end_time": "09:45",
+    "technician_name": "Donald",
+    "location_name": "RR 1150 18th",
+    "location_to": "LPC -1325 G St. NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "09:45",
+    "end_time": "10:00",
+    "technician_name": "Donald",
+    "location_name": "LPC -1325 G St. NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "10:15",
+    "end_time": "10:15",
+    "technician_name": "Donald",
+    "location_name": "LPC -1325 G St. NW",
+    "location_to": "LPC -1325 G St. NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "10:15",
+    "end_time": "10:30",
+    "technician_name": "Donald",
+    "location_name": "LPC -1325 G St. NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "10:45",
+    "end_time": "10:45",
+    "technician_name": "Donald",
+    "location_name": "LPC -1325 G St. NW",
+    "location_to": "LPC -1325 G St. NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "10:45",
+    "end_time": "11:00",
+    "technician_name": "Donald",
+    "location_name": "LPC -1325 G St. NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "11:14",
+    "end_time": "11:15",
+    "technician_name": "Donald",
+    "location_name": "LPC -1325 G St. NW",
+    "location_to": "TS-1120 G St. NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "11:15",
+    "end_time": "11:35",
+    "technician_name": "Donald",
+    "location_name": "TS-1120 G St. NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "11:50",
+    "end_time": "11:50",
+    "technician_name": "Donald",
+    "location_name": "TS-1120 G St. NW",
+    "location_to": "TS-1120 G St. NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "11:50",
+    "end_time": "12:10",
+    "technician_name": "Donald",
+    "location_name": "TS-1120 G St. NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "12:25",
+    "end_time": "12:25",
+    "technician_name": "Donald",
+    "location_name": "TS-1120 G St. NW",
+    "location_to": "TS-1120 G St. NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "12:25",
+    "end_time": "12:45",
+    "technician_name": "Donald",
+    "location_name": "TS-1120 G St. NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "12:57",
+    "end_time": "13:00",
+    "technician_name": "Donald",
+    "location_name": "TS-1120 G St. NW",
+    "location_to": "Defenders of Wildlife",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "13:00",
+    "end_time": "13:20",
+    "technician_name": "Donald",
+    "location_name": "Defenders of Wildlife",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "13:35",
+    "end_time": "13:35",
+    "technician_name": "Donald",
+    "location_name": "Defenders of Wildlife",
+    "location_to": "Defenders of Wildlife",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "13:35",
+    "end_time": "13:55",
+    "technician_name": "Donald",
+    "location_name": "Defenders of Wildlife",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "14:09",
+    "end_time": "14:10",
+    "technician_name": "Donald",
+    "location_name": "Defenders of Wildlife",
+    "location_to": "Tiny Jewel Box",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "14:10",
+    "end_time": "14:40",
+    "technician_name": "Donald",
+    "location_name": "Tiny Jewel Box",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "14:55",
+    "end_time": "14:55",
+    "technician_name": "Donald",
+    "location_name": "Tiny Jewel Box",
+    "location_to": "Tiny Jewel Box",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "14:55",
+    "end_time": "15:25",
+    "technician_name": "Donald",
+    "location_name": "Tiny Jewel Box",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "15:25",
+    "end_time": "16:38",
+    "technician_name": "Donald",
+    "location_name": "Tiny Jewel Box",
+    "location_to": "Office",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "07:01",
+    "end_time": "08:15",
+    "technician_name": "Henry",
+    "location_name": "Office",
+    "location_to": "CW-1100 Vermont",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "08:15",
+    "end_time": "08:45",
+    "technician_name": "Henry",
+    "location_name": "CW-1100 Vermont",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "09:00",
+    "end_time": "09:00",
+    "technician_name": "Henry",
+    "location_name": "CW-1100 Vermont",
+    "location_to": "CW-1100 Vermont",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "09:00",
+    "end_time": "09:30",
+    "technician_name": "Henry",
+    "location_name": "CW-1100 Vermont",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "09:45",
+    "end_time": "09:45",
+    "technician_name": "Henry",
+    "location_name": "CW-1100 Vermont",
+    "location_to": "CW-1100 Vermont",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "09:45",
+    "end_time": "10:15",
+    "technician_name": "Henry",
+    "location_name": "CW-1100 Vermont",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "10:28",
+    "end_time": "10:30",
+    "technician_name": "Henry",
+    "location_name": "CW-1100 Vermont",
+    "location_to": "CPT-1800 M St NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "10:30",
+    "end_time": "11:30",
+    "technician_name": "Henry",
+    "location_name": "CPT-1800 M St NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "11:45",
+    "end_time": "11:45",
+    "technician_name": "Henry",
+    "location_name": "CPT-1800 M St NW",
+    "location_to": "CPT-1800 M St NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "11:45",
+    "end_time": "12:45",
+    "technician_name": "Henry",
+    "location_name": "CPT-1800 M St NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "12:45",
+    "end_time": "13:58",
+    "technician_name": "Henry",
+    "location_name": "CPT-1800 M St NW",
+    "location_to": "Office",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "07:50",
+    "end_time": "08:15",
+    "technician_name": "Luis",
+    "location_name": "Office",
+    "location_to": "Corsica Wine Bar",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "08:15",
+    "end_time": "08:45",
+    "technician_name": "Luis",
+    "location_name": "Corsica Wine Bar",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "08:55",
+    "end_time": "09:45",
+    "technician_name": "Luis",
+    "location_name": "Corsica Wine Bar",
+    "location_to": "CARR - 1401 New York Ave, NW (formerly LPC)",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "09:00",
+    "end_time": "09:00",
+    "technician_name": "Luis",
+    "location_name": "Corsica Wine Bar",
+    "location_to": "Corsica Wine Bar",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "09:00",
+    "end_time": "09:30",
+    "technician_name": "Luis",
+    "location_name": "Corsica Wine Bar",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "09:45",
+    "end_time": "10:45",
+    "technician_name": "Luis",
+    "location_name": "CARR - 1401 New York Ave, NW (formerly LPC)",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "11:00",
+    "end_time": "11:00",
+    "technician_name": "Luis",
+    "location_name": "CARR - 1401 New York Ave, NW (formerly LPC)",
+    "location_to": "CARR - 1401 New York Ave, NW (formerly LPC)",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "11:00",
+    "end_time": "12:00",
+    "technician_name": "Luis",
+    "location_name": "CARR - 1401 New York Ave, NW (formerly LPC)",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "11:56",
+    "end_time": "12:15",
+    "technician_name": "Luis",
+    "location_name": "CARR - 1401 New York Ave, NW (formerly LPC)",
+    "location_to": "STOL - SHRM 1800 Duke",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "12:15",
+    "end_time": "13:15",
+    "technician_name": "Luis",
+    "location_name": "STOL - SHRM 1800 Duke",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "13:30",
+    "end_time": "13:30",
+    "technician_name": "Luis",
+    "location_name": "STOL - SHRM 1800 Duke",
+    "location_to": "STOL - SHRM 1800 Duke",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "13:30",
+    "end_time": "14:30",
+    "technician_name": "Luis",
+    "location_name": "STOL - SHRM 1800 Duke",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "14:45",
+    "end_time": "14:45",
+    "technician_name": "Luis",
+    "location_name": "STOL - SHRM 1800 Duke",
+    "location_to": "STOL - SHRM 1800 Duke",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "14:45",
+    "end_time": "15:45",
+    "technician_name": "Luis",
+    "location_name": "STOL - SHRM 1800 Duke",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "15:45",
+    "end_time": "17:00",
+    "technician_name": "Luis",
+    "location_name": "STOL - SHRM 1800 Duke",
+    "location_to": "Office",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "07:02",
+    "end_time": "08:15",
+    "technician_name": "Miguel",
+    "location_name": "Office",
+    "location_to": "Tiny Jewel Box",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "08:15",
+    "end_time": "08:45",
+    "technician_name": "Miguel",
+    "location_name": "Tiny Jewel Box",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "08:58",
+    "end_time": "09:00",
+    "technician_name": "Miguel",
+    "location_name": "Tiny Jewel Box",
+    "location_to": "COLL-1275 K St NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "09:00",
+    "end_time": "09:30",
+    "technician_name": "Miguel",
+    "location_name": "COLL-1275 K St NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "09:45",
+    "end_time": "09:45",
+    "technician_name": "Miguel",
+    "location_name": "COLL-1275 K St NW",
+    "location_to": "COLL-1275 K St NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "09:45",
+    "end_time": "10:15",
+    "technician_name": "Miguel",
+    "location_name": "COLL-1275 K St NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "10:29",
+    "end_time": "10:30",
+    "technician_name": "Miguel",
+    "location_name": "COLL-1275 K St NW",
+    "location_to": "LPC - 1341 G St - Formerly LPC Colorado",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "10:30",
+    "end_time": "11:00",
+    "technician_name": "Miguel",
+    "location_name": "LPC - 1341 G St - Formerly LPC Colorado",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "11:13",
+    "end_time": "11:15",
+    "technician_name": "Miguel",
+    "location_name": "LPC - 1341 G St - Formerly LPC Colorado",
+    "location_to": "LPC -1660 L St NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "11:15",
+    "end_time": "11:45",
+    "technician_name": "Miguel",
+    "location_name": "LPC -1660 L St NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "12:00",
+    "end_time": "12:00",
+    "technician_name": "Miguel",
+    "location_name": "LPC -1660 L St NW",
+    "location_to": "LPC -1660 L St NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "12:00",
+    "end_time": "12:30",
+    "technician_name": "Miguel",
+    "location_name": "LPC -1660 L St NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "12:45",
+    "end_time": "12:45",
+    "technician_name": "Miguel",
+    "location_name": "LPC -1660 L St NW",
+    "location_to": "LPC -1660 L St NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "12:45",
+    "end_time": "13:15",
+    "technician_name": "Miguel",
+    "location_name": "LPC -1660 L St NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "13:29",
+    "end_time": "13:30",
+    "technician_name": "Miguel",
+    "location_name": "LPC -1660 L St NW",
+    "location_to": "KCE",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "13:30",
+    "end_time": "14:00",
+    "technician_name": "Miguel",
+    "location_name": "KCE",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "14:13",
+    "end_time": "14:15",
+    "technician_name": "Miguel",
+    "location_name": "KCE",
+    "location_to": "CARR - 1401 New York Ave, NW (formerly LPC)",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "14:15",
+    "end_time": "15:15",
+    "technician_name": "Miguel",
+    "location_name": "CARR - 1401 New York Ave, NW (formerly LPC)",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-16",
+    "day_of_week": "Monday",
+    "start_time": "15:15",
+    "end_time": "16:29",
+    "technician_name": "Miguel",
+    "location_name": "CARR - 1401 New York Ave, NW (formerly LPC)",
+    "location_to": "Office",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "07:03",
+    "end_time": "08:15",
+    "technician_name": "Darwin",
+    "location_name": "Office",
+    "location_to": "Longwell Partners",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "08:15",
+    "end_time": "08:30",
+    "technician_name": "Darwin",
+    "location_name": "Longwell Partners",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "08:45",
+    "end_time": "08:45",
+    "technician_name": "Darwin",
+    "location_name": "Longwell Partners",
+    "location_to": "Longwell Partners",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "08:45",
+    "end_time": "09:00",
+    "technician_name": "Darwin",
+    "location_name": "Longwell Partners",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "09:00",
+    "end_time": "10:12",
+    "technician_name": "Darwin",
+    "location_name": "Longwell Partners",
+    "location_to": "Office",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "06:59",
+    "end_time": "08:15",
+    "technician_name": "Donald",
+    "location_name": "Office",
+    "location_to": "Trusted Choice",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "07:55",
+    "end_time": "08:30",
+    "technician_name": "Donald",
+    "location_name": "Trusted Choice",
+    "location_to": "North Italia Tysons",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "08:15",
+    "end_time": "08:15",
+    "technician_name": "Donald",
+    "location_name": "Trusted Choice",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "08:18",
+    "end_time": "09:00",
+    "technician_name": "Donald",
+    "location_name": "North Italia Tysons",
+    "location_to": "Sweet Green One Loudoun",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "08:30",
+    "end_time": "08:45",
+    "technician_name": "Donald",
+    "location_name": "North Italia Tysons",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "09:00",
+    "end_time": "09:15",
+    "technician_name": "Donald",
+    "location_name": "Sweet Green One Loudoun",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "09:21",
+    "end_time": "10:00",
+    "technician_name": "Donald",
+    "location_name": "Sweet Green One Loudoun",
+    "location_to": "Sweet Green - Gaithersburg",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "09:30",
+    "end_time": "09:30",
+    "technician_name": "Donald",
+    "location_name": "Sweet Green One Loudoun",
+    "location_to": "Sweet Green One Loudoun",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "09:30",
+    "end_time": "09:45",
+    "technician_name": "Donald",
+    "location_name": "Sweet Green One Loudoun",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "10:00",
+    "end_time": "10:15",
+    "technician_name": "Donald",
+    "location_name": "Sweet Green - Gaithersburg",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "10:10",
+    "end_time": "11:00",
+    "technician_name": "Donald",
+    "location_name": "Sweet Green - Gaithersburg",
+    "location_to": "Sweet Green - Mount Vernon",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "10:30",
+    "end_time": "10:30",
+    "technician_name": "Donald",
+    "location_name": "Sweet Green - Gaithersburg",
+    "location_to": "Sweet Green - Gaithersburg",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "10:30",
+    "end_time": "10:45",
+    "technician_name": "Donald",
+    "location_name": "Sweet Green - Gaithersburg",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "11:00",
+    "end_time": "11:15",
+    "technician_name": "Donald",
+    "location_name": "Sweet Green - Mount Vernon",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "11:30",
+    "end_time": "11:30",
+    "technician_name": "Donald",
+    "location_name": "Sweet Green - Mount Vernon",
+    "location_to": "Sweet Green - Mount Vernon",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "11:30",
+    "end_time": "11:45",
+    "technician_name": "Donald",
+    "location_name": "Sweet Green - Mount Vernon",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "11:57",
+    "end_time": "12:00",
+    "technician_name": "Donald",
+    "location_name": "Sweet Green - Mount Vernon",
+    "location_to": "zNALC 100 Indiana",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "12:00",
+    "end_time": "12:30",
+    "technician_name": "Donald",
+    "location_name": "zNALC 100 Indiana",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "12:41",
+    "end_time": "12:45",
+    "technician_name": "Donald",
+    "location_name": "zNALC 100 Indiana",
+    "location_to": "Taicoon 1400 K St, NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "12:45",
+    "end_time": "13:15",
+    "technician_name": "Donald",
+    "location_name": "Taicoon 1400 K St, NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "13:30",
+    "end_time": "13:30",
+    "technician_name": "Donald",
+    "location_name": "Taicoon 1400 K St, NW",
+    "location_to": "Taicoon 1400 K St, NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "13:30",
+    "end_time": "14:00",
+    "technician_name": "Donald",
+    "location_name": "Taicoon 1400 K St, NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "14:11",
+    "end_time": "14:15",
+    "technician_name": "Donald",
+    "location_name": "Taicoon 1400 K St, NW",
+    "location_to": "LPC-20 F St. NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "14:15",
+    "end_time": "14:45",
+    "technician_name": "Donald",
+    "location_name": "LPC-20 F St. NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "15:00",
+    "end_time": "15:00",
+    "technician_name": "Donald",
+    "location_name": "LPC-20 F St. NW",
+    "location_to": "LPC-20 F St. NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "15:00",
+    "end_time": "15:30",
+    "technician_name": "Donald",
+    "location_name": "LPC-20 F St. NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "15:30",
+    "end_time": "16:48",
+    "technician_name": "Donald",
+    "location_name": "LPC-20 F St. NW",
+    "location_to": "Office",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "07:00",
+    "end_time": "08:15",
+    "technician_name": "Henry",
+    "location_name": "Office",
+    "location_to": "NAW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "08:15",
+    "end_time": "08:30",
+    "technician_name": "Henry",
+    "location_name": "NAW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "08:45",
+    "end_time": "08:45",
+    "technician_name": "Henry",
+    "location_name": "NAW",
+    "location_to": "NAW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "08:45",
+    "end_time": "09:00",
+    "technician_name": "Henry",
+    "location_name": "NAW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "09:00",
+    "end_time": "10:15",
+    "technician_name": "Henry",
+    "location_name": "NAW",
+    "location_to": "Office",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "07:49",
+    "end_time": "08:15",
+    "technician_name": "Luis",
+    "location_name": "Office",
+    "location_to": "North Italia Restaurant Reston",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "08:15",
+    "end_time": "08:30",
+    "technician_name": "Luis",
+    "location_name": "North Italia Restaurant Reston",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "08:32",
+    "end_time": "09:15",
+    "technician_name": "Luis",
+    "location_name": "North Italia Restaurant Reston",
+    "location_to": "Barcelona Wine Bar 3310 Wisc",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "08:45",
+    "end_time": "08:45",
+    "technician_name": "Luis",
+    "location_name": "North Italia Restaurant Reston",
+    "location_to": "North Italia Restaurant Reston",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "08:45",
+    "end_time": "09:00",
+    "technician_name": "Luis",
+    "location_name": "North Italia Restaurant Reston",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "09:00",
+    "end_time": "09:45",
+    "technician_name": "Luis",
+    "location_name": "Barcelona Wine Bar 3310 Wisc",
+    "location_to": "Sweet Green Fairfax",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "09:15",
+    "end_time": "09:30",
+    "technician_name": "Luis",
+    "location_name": "Barcelona Wine Bar 3310 Wisc",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "09:45",
+    "end_time": "10:00",
+    "technician_name": "Luis",
+    "location_name": "Sweet Green Fairfax",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "09:59",
+    "end_time": "10:45",
+    "technician_name": "Luis",
+    "location_name": "Sweet Green Fairfax",
+    "location_to": "Solaire",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "10:15",
+    "end_time": "10:15",
+    "technician_name": "Luis",
+    "location_name": "Sweet Green Fairfax",
+    "location_to": "Sweet Green Fairfax",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "10:15",
+    "end_time": "10:30",
+    "technician_name": "Luis",
+    "location_name": "Sweet Green Fairfax",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "10:45",
+    "end_time": "11:00",
+    "technician_name": "Luis",
+    "location_name": "Solaire",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "11:15",
+    "end_time": "11:15",
+    "technician_name": "Luis",
+    "location_name": "Solaire",
+    "location_to": "Solaire",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "11:15",
+    "end_time": "11:30",
+    "technician_name": "Luis",
+    "location_name": "Solaire",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "11:32",
+    "end_time": "11:45",
+    "technician_name": "Luis",
+    "location_name": "Solaire",
+    "location_to": "Choice Hotels HQ",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "11:45",
+    "end_time": "12:15",
+    "technician_name": "Luis",
+    "location_name": "Choice Hotels HQ",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "12:30",
+    "end_time": "12:30",
+    "technician_name": "Luis",
+    "location_name": "Choice Hotels HQ",
+    "location_to": "Choice Hotels HQ",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "12:30",
+    "end_time": "13:00",
+    "technician_name": "Luis",
+    "location_name": "Choice Hotels HQ",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "12:45",
+    "end_time": "13:15",
+    "technician_name": "Luis",
+    "location_name": "Choice Hotels HQ",
+    "location_to": "PIIE aka Peterson Institute for International Economics (formerly IIE-1750 Mass Ave)",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "13:15",
+    "end_time": "14:00",
+    "technician_name": "Luis",
+    "location_name": "PIIE aka Peterson Institute for International Economics (formerly IIE-1750 Mass Ave)",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "14:15",
+    "end_time": "14:15",
+    "technician_name": "Luis",
+    "location_name": "PIIE aka Peterson Institute for International Economics (formerly IIE-1750 Mass Ave)",
+    "location_to": "PIIE aka Peterson Institute for International Economics (formerly IIE-1750 Mass Ave)",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "14:15",
+    "end_time": "15:00",
+    "technician_name": "Luis",
+    "location_name": "PIIE aka Peterson Institute for International Economics (formerly IIE-1750 Mass Ave)",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "15:00",
+    "end_time": "16:13",
+    "technician_name": "Luis",
+    "location_name": "PIIE aka Peterson Institute for International Economics (formerly IIE-1750 Mass Ave)",
+    "location_to": "Office",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "07:00",
+    "end_time": "08:15",
+    "technician_name": "Miguel",
+    "location_name": "Office",
+    "location_to": "LPC 733 10th St, NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "08:15",
+    "end_time": "08:45",
+    "technician_name": "Miguel",
+    "location_name": "LPC 733 10th St, NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "09:00",
+    "end_time": "09:00",
+    "technician_name": "Miguel",
+    "location_name": "LPC 733 10th St, NW",
+    "location_to": "LPC 733 10th St, NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "09:00",
+    "end_time": "09:30",
+    "technician_name": "Miguel",
+    "location_name": "LPC 733 10th St, NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "09:45",
+    "end_time": "09:45",
+    "technician_name": "Miguel",
+    "location_name": "LPC 733 10th St, NW",
+    "location_to": "LPC 733 10th St, NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "09:45",
+    "end_time": "10:15",
+    "technician_name": "Miguel",
+    "location_name": "LPC 733 10th St, NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "09:59",
+    "end_time": "10:30",
+    "technician_name": "Miguel",
+    "location_name": "LPC 733 10th St, NW",
+    "location_to": "FR-909 Rose Ave",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "10:30",
+    "end_time": "11:00",
+    "technician_name": "Miguel",
+    "location_name": "FR-909 Rose Ave",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "11:15",
+    "end_time": "11:15",
+    "technician_name": "Miguel",
+    "location_name": "FR-909 Rose Ave",
+    "location_to": "FR-909 Rose Ave",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "11:15",
+    "end_time": "11:45",
+    "technician_name": "Miguel",
+    "location_name": "FR-909 Rose Ave",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-17",
+    "day_of_week": "Tuesday",
+    "start_time": "11:45",
+    "end_time": "12:49",
+    "technician_name": "Miguel",
+    "location_name": "FR-909 Rose Ave",
+    "location_to": "Office",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "07:03",
+    "end_time": "08:15",
+    "technician_name": "Darwin",
+    "location_name": "Office",
+    "location_to": "JLL-1200 New Hampshire",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "08:15",
+    "end_time": "09:15",
+    "technician_name": "Darwin",
+    "location_name": "JLL-1200 New Hampshire",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "09:30",
+    "end_time": "09:30",
+    "technician_name": "Darwin",
+    "location_name": "JLL-1200 New Hampshire",
+    "location_to": "JLL-1200 New Hampshire",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "09:30",
+    "end_time": "10:30",
+    "technician_name": "Darwin",
+    "location_name": "JLL-1200 New Hampshire",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "10:45",
+    "end_time": "10:45",
+    "technician_name": "Darwin",
+    "location_name": "JLL-1200 New Hampshire",
+    "location_to": "JLL-1200 New Hampshire",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "10:45",
+    "end_time": "11:45",
+    "technician_name": "Darwin",
+    "location_name": "JLL-1200 New Hampshire",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "11:59",
+    "end_time": "12:00",
+    "technician_name": "Darwin",
+    "location_name": "JLL-1200 New Hampshire",
+    "location_to": "CPT-1800 M St NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "12:00",
+    "end_time": "13:00",
+    "technician_name": "Darwin",
+    "location_name": "CPT-1800 M St NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "13:14",
+    "end_time": "13:15",
+    "technician_name": "Darwin",
+    "location_name": "CPT-1800 M St NW",
+    "location_to": "Akin Gump 2001 K",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "13:15",
+    "end_time": "14:15",
+    "technician_name": "Darwin",
+    "location_name": "Akin Gump 2001 K",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "14:30",
+    "end_time": "14:30",
+    "technician_name": "Darwin",
+    "location_name": "Akin Gump 2001 K",
+    "location_to": "Akin Gump 2001 K",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "14:30",
+    "end_time": "15:30",
+    "technician_name": "Darwin",
+    "location_name": "Akin Gump 2001 K",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "15:30",
+    "end_time": "16:42",
+    "technician_name": "Darwin",
+    "location_name": "Akin Gump 2001 K",
+    "location_to": "Office",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "07:02",
+    "end_time": "08:15",
+    "technician_name": "Donald",
+    "location_name": "Office",
+    "location_to": "RR 1150 18th",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "08:15",
+    "end_time": "08:30",
+    "technician_name": "Donald",
+    "location_name": "RR 1150 18th",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "08:45",
+    "end_time": "08:45",
+    "technician_name": "Donald",
+    "location_name": "RR 1150 18th",
+    "location_to": "RR 1150 18th",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "08:45",
+    "end_time": "09:00",
+    "technician_name": "Donald",
+    "location_name": "RR 1150 18th",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "09:15",
+    "end_time": "09:15",
+    "technician_name": "Donald",
+    "location_name": "RR 1150 18th",
+    "location_to": "RR 1150 18th",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "09:15",
+    "end_time": "09:30",
+    "technician_name": "Donald",
+    "location_name": "RR 1150 18th",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "09:40",
+    "end_time": "09:45",
+    "technician_name": "Donald",
+    "location_name": "RR 1150 18th",
+    "location_to": "Business Group on Health",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "09:45",
+    "end_time": "10:00",
+    "technician_name": "Donald",
+    "location_name": "Business Group on Health",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "10:13",
+    "end_time": "10:15",
+    "technician_name": "Donald",
+    "location_name": "Business Group on Health",
+    "location_to": "CB-820 First St NE CNN",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "10:15",
+    "end_time": "10:30",
+    "technician_name": "Donald",
+    "location_name": "CB-820 First St NE CNN",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "10:45",
+    "end_time": "10:45",
+    "technician_name": "Donald",
+    "location_name": "CB-820 First St NE CNN",
+    "location_to": "CB-820 First St NE CNN",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "10:45",
+    "end_time": "11:00",
+    "technician_name": "Donald",
+    "location_name": "CB-820 First St NE CNN",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "11:07",
+    "end_time": "11:15",
+    "technician_name": "Donald",
+    "location_name": "CB-820 First St NE CNN",
+    "location_to": "J Street 2901 M",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "11:15",
+    "end_time": "11:30",
+    "technician_name": "Donald",
+    "location_name": "J Street 2901 M",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "11:45",
+    "end_time": "11:45",
+    "technician_name": "Donald",
+    "location_name": "J Street 2901 M",
+    "location_to": "J Street 2901 M",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "11:45",
+    "end_time": "12:00",
+    "technician_name": "Donald",
+    "location_name": "J Street 2901 M",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "12:15",
+    "end_time": "12:15",
+    "technician_name": "Donald",
+    "location_name": "J Street 2901 M",
+    "location_to": "J Street 2901 M",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "12:15",
+    "end_time": "12:30",
+    "technician_name": "Donald",
+    "location_name": "J Street 2901 M",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "12:42",
+    "end_time": "12:45",
+    "technician_name": "Donald",
+    "location_name": "J Street 2901 M",
+    "location_to": "KCE",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "12:45",
+    "end_time": "13:15",
+    "technician_name": "Donald",
+    "location_name": "KCE",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "13:29",
+    "end_time": "13:30",
+    "technician_name": "Donald",
+    "location_name": "KCE",
+    "location_to": "BMS-Pepperdine U",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "13:30",
+    "end_time": "14:00",
+    "technician_name": "Donald",
+    "location_name": "BMS-Pepperdine U",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "14:15",
+    "end_time": "14:15",
+    "technician_name": "Donald",
+    "location_name": "BMS-Pepperdine U",
+    "location_to": "BMS-Pepperdine U",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "14:15",
+    "end_time": "14:45",
+    "technician_name": "Donald",
+    "location_name": "BMS-Pepperdine U",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "15:00",
+    "end_time": "15:00",
+    "technician_name": "Donald",
+    "location_name": "BMS-Pepperdine U",
+    "location_to": "BMS-Pepperdine U",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "15:00",
+    "end_time": "15:30",
+    "technician_name": "Donald",
+    "location_name": "BMS-Pepperdine U",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "15:30",
+    "end_time": "16:42",
+    "technician_name": "Donald",
+    "location_name": "BMS-Pepperdine U",
+    "location_to": "Office",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "07:02",
+    "end_time": "08:15",
+    "technician_name": "Henry",
+    "location_name": "Office",
+    "location_to": "RR 801 18th St, NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "08:15",
+    "end_time": "08:45",
+    "technician_name": "Henry",
+    "location_name": "RR 801 18th St, NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "09:00",
+    "end_time": "09:00",
+    "technician_name": "Henry",
+    "location_name": "RR 801 18th St, NW",
+    "location_to": "RR 801 18th St, NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "09:00",
+    "end_time": "09:30",
+    "technician_name": "Henry",
+    "location_name": "RR 801 18th St, NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "09:45",
+    "end_time": "09:45",
+    "technician_name": "Henry",
+    "location_name": "RR 801 18th St, NW",
+    "location_to": "RR 801 18th St, NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "09:45",
+    "end_time": "10:15",
+    "technician_name": "Henry",
+    "location_name": "RR 801 18th St, NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "10:15",
+    "end_time": "11:28",
+    "technician_name": "Henry",
+    "location_name": "RR 801 18th St, NW",
+    "location_to": "Office",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "07:00",
+    "end_time": "08:15",
+    "technician_name": "Luis",
+    "location_name": "Office",
+    "location_to": "LSG",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "08:15",
+    "end_time": "08:45",
+    "technician_name": "Luis",
+    "location_name": "LSG",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "09:00",
+    "end_time": "09:00",
+    "technician_name": "Luis",
+    "location_name": "LSG",
+    "location_to": "LSG",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "09:00",
+    "end_time": "09:30",
+    "technician_name": "Luis",
+    "location_name": "LSG",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "09:44",
+    "end_time": "09:45",
+    "technician_name": "Luis",
+    "location_name": "LSG",
+    "location_to": "CARR - 1401 New York Ave, NW (formerly LPC)",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "09:45",
+    "end_time": "10:45",
+    "technician_name": "Luis",
+    "location_name": "CARR - 1401 New York Ave, NW (formerly LPC)",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "10:58",
+    "end_time": "11:00",
+    "technician_name": "Luis",
+    "location_name": "CARR - 1401 New York Ave, NW (formerly LPC)",
+    "location_to": "TRAN-1800 K St NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "11:00",
+    "end_time": "12:00",
+    "technician_name": "Luis",
+    "location_name": "TRAN-1800 K St NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "12:15",
+    "end_time": "12:15",
+    "technician_name": "Luis",
+    "location_name": "TRAN-1800 K St NW",
+    "location_to": "TRAN-1800 K St NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "12:15",
+    "end_time": "13:15",
+    "technician_name": "Luis",
+    "location_name": "TRAN-1800 K St NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "13:30",
+    "end_time": "13:30",
+    "technician_name": "Luis",
+    "location_name": "TRAN-1800 K St NW",
+    "location_to": "TRAN-1800 K St NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "13:30",
+    "end_time": "14:30",
+    "technician_name": "Luis",
+    "location_name": "TRAN-1800 K St NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "14:44",
+    "end_time": "14:45",
+    "technician_name": "Luis",
+    "location_name": "TRAN-1800 K St NW",
+    "location_to": "CPT-1800 M St NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "14:45",
+    "end_time": "15:45",
+    "technician_name": "Luis",
+    "location_name": "CPT-1800 M St NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "15:45",
+    "end_time": "16:58",
+    "technician_name": "Luis",
+    "location_name": "CPT-1800 M St NW",
+    "location_to": "Office",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "07:01",
+    "end_time": "08:15",
+    "technician_name": "Miguel",
+    "location_name": "Office",
+    "location_to": "STRM-740 15th St",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "08:15",
+    "end_time": "08:45",
+    "technician_name": "Miguel",
+    "location_name": "STRM-740 15th St",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "09:00",
+    "end_time": "09:00",
+    "technician_name": "Miguel",
+    "location_name": "STRM-740 15th St",
+    "location_to": "STRM-740 15th St",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "09:00",
+    "end_time": "09:30",
+    "technician_name": "Miguel",
+    "location_name": "STRM-740 15th St",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "09:45",
+    "end_time": "09:45",
+    "technician_name": "Miguel",
+    "location_name": "STRM-740 15th St",
+    "location_to": "STRM-740 15th St",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "09:45",
+    "end_time": "10:15",
+    "technician_name": "Miguel",
+    "location_name": "STRM-740 15th St",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "10:28",
+    "end_time": "10:30",
+    "technician_name": "Miguel",
+    "location_name": "STRM-740 15th St",
+    "location_to": "CW-919 18th St NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "10:30",
+    "end_time": "11:00",
+    "technician_name": "Miguel",
+    "location_name": "CW-919 18th St NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "11:15",
+    "end_time": "11:15",
+    "technician_name": "Miguel",
+    "location_name": "CW-919 18th St NW",
+    "location_to": "CW-919 18th St NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "11:15",
+    "end_time": "11:45",
+    "technician_name": "Miguel",
+    "location_name": "CW-919 18th St NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "12:00",
+    "end_time": "12:00",
+    "technician_name": "Miguel",
+    "location_name": "CW-919 18th St NW",
+    "location_to": "CW-919 18th St NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "12:00",
+    "end_time": "12:30",
+    "technician_name": "Miguel",
+    "location_name": "CW-919 18th St NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "12:43",
+    "end_time": "12:45",
+    "technician_name": "Miguel",
+    "location_name": "CW-919 18th St NW",
+    "location_to": "CARR - 1401 New York Ave, NW (formerly LPC)",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "12:45",
+    "end_time": "13:45",
+    "technician_name": "Miguel",
+    "location_name": "CARR - 1401 New York Ave, NW (formerly LPC)",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "14:00",
+    "end_time": "14:00",
+    "technician_name": "Miguel",
+    "location_name": "CARR - 1401 New York Ave, NW (formerly LPC)",
+    "location_to": "CARR - 1401 New York Ave, NW (formerly LPC)",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "14:00",
+    "end_time": "15:00",
+    "technician_name": "Miguel",
+    "location_name": "CARR - 1401 New York Ave, NW (formerly LPC)",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-18",
+    "day_of_week": "Wednesday",
+    "start_time": "15:00",
+    "end_time": "16:14",
+    "technician_name": "Miguel",
+    "location_name": "CARR - 1401 New York Ave, NW (formerly LPC)",
+    "location_to": "Office",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "07:00",
+    "end_time": "08:15",
+    "technician_name": "Darwin",
+    "location_name": "Office",
+    "location_to": "STOL - SHRM 1800 Duke",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "08:15",
+    "end_time": "09:15",
+    "technician_name": "Darwin",
+    "location_name": "STOL - SHRM 1800 Duke",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "09:30",
+    "end_time": "09:30",
+    "technician_name": "Darwin",
+    "location_name": "STOL - SHRM 1800 Duke",
+    "location_to": "STOL - SHRM 1800 Duke",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "09:30",
+    "end_time": "10:30",
+    "technician_name": "Darwin",
+    "location_name": "STOL - SHRM 1800 Duke",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "10:25",
+    "end_time": "10:45",
+    "technician_name": "Darwin",
+    "location_name": "STOL - SHRM 1800 Duke",
+    "location_to": "AKR 2100 L St NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "10:45",
+    "end_time": "11:45",
+    "technician_name": "Darwin",
+    "location_name": "AKR 2100 L St NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "12:00",
+    "end_time": "12:00",
+    "technician_name": "Darwin",
+    "location_name": "AKR 2100 L St NW",
+    "location_to": "AKR 2100 L St NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "12:00",
+    "end_time": "13:00",
+    "technician_name": "Darwin",
+    "location_name": "AKR 2100 L St NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "13:15",
+    "end_time": "13:15",
+    "technician_name": "Darwin",
+    "location_name": "AKR 2100 L St NW",
+    "location_to": "AKR 2100 L St NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "13:15",
+    "end_time": "14:15",
+    "technician_name": "Darwin",
+    "location_name": "AKR 2100 L St NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "14:25",
+    "end_time": "14:30",
+    "technician_name": "Darwin",
+    "location_name": "AKR 2100 L St NW",
+    "location_to": "JLL-1700 N Moore",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "14:30",
+    "end_time": "16:00",
+    "technician_name": "Darwin",
+    "location_name": "JLL-1700 N Moore",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "16:00",
+    "end_time": "17:09",
+    "technician_name": "Darwin",
+    "location_name": "JLL-1700 N Moore",
+    "location_to": "Office",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "07:00",
+    "end_time": "08:15",
+    "technician_name": "Donald",
+    "location_name": "Office",
+    "location_to": "LPC -1325 G St. NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "08:15",
+    "end_time": "08:30",
+    "technician_name": "Donald",
+    "location_name": "LPC -1325 G St. NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "08:45",
+    "end_time": "08:45",
+    "technician_name": "Donald",
+    "location_name": "LPC -1325 G St. NW",
+    "location_to": "LPC -1325 G St. NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "08:45",
+    "end_time": "09:00",
+    "technician_name": "Donald",
+    "location_name": "LPC -1325 G St. NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "08:46",
+    "end_time": "09:45",
+    "technician_name": "Donald",
+    "location_name": "LPC -1325 G St. NW",
+    "location_to": "Spear Street Capital",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "09:15",
+    "end_time": "09:15",
+    "technician_name": "Donald",
+    "location_name": "LPC -1325 G St. NW",
+    "location_to": "LPC -1325 G St. NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "09:15",
+    "end_time": "09:30",
+    "technician_name": "Donald",
+    "location_name": "LPC -1325 G St. NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "09:45",
+    "end_time": "10:00",
+    "technician_name": "Donald",
+    "location_name": "Spear Street Capital",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "09:47",
+    "end_time": "10:45",
+    "technician_name": "Donald",
+    "location_name": "Spear Street Capital",
+    "location_to": "North Italia Restaurant DC",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "10:15",
+    "end_time": "10:15",
+    "technician_name": "Donald",
+    "location_name": "Spear Street Capital",
+    "location_to": "Spear Street Capital",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "10:15",
+    "end_time": "10:30",
+    "technician_name": "Donald",
+    "location_name": "Spear Street Capital",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "10:45",
+    "end_time": "11:00",
+    "technician_name": "Donald",
+    "location_name": "North Italia Restaurant DC",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "11:15",
+    "end_time": "11:15",
+    "technician_name": "Donald",
+    "location_name": "North Italia Restaurant DC",
+    "location_to": "North Italia Restaurant DC",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "11:15",
+    "end_time": "11:30",
+    "technician_name": "Donald",
+    "location_name": "North Italia Restaurant DC",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "11:43",
+    "end_time": "11:45",
+    "technician_name": "Donald",
+    "location_name": "North Italia Restaurant DC",
+    "location_to": "TS-1120 G St. NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "11:45",
+    "end_time": "12:05",
+    "technician_name": "Donald",
+    "location_name": "TS-1120 G St. NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "12:20",
+    "end_time": "12:20",
+    "technician_name": "Donald",
+    "location_name": "TS-1120 G St. NW",
+    "location_to": "TS-1120 G St. NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "12:20",
+    "end_time": "12:40",
+    "technician_name": "Donald",
+    "location_name": "TS-1120 G St. NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "12:55",
+    "end_time": "12:55",
+    "technician_name": "Donald",
+    "location_name": "TS-1120 G St. NW",
+    "location_to": "TS-1120 G St. NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "12:55",
+    "end_time": "13:15",
+    "technician_name": "Donald",
+    "location_name": "TS-1120 G St. NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "13:27",
+    "end_time": "13:30",
+    "technician_name": "Donald",
+    "location_name": "TS-1120 G St. NW",
+    "location_to": "Defenders of Wildlife",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "13:30",
+    "end_time": "13:50",
+    "technician_name": "Donald",
+    "location_name": "Defenders of Wildlife",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "14:05",
+    "end_time": "14:05",
+    "technician_name": "Donald",
+    "location_name": "Defenders of Wildlife",
+    "location_to": "Defenders of Wildlife",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "14:05",
+    "end_time": "14:25",
+    "technician_name": "Donald",
+    "location_name": "Defenders of Wildlife",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "14:39",
+    "end_time": "14:40",
+    "technician_name": "Donald",
+    "location_name": "Defenders of Wildlife",
+    "location_to": "Tiny Jewel Box",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "14:40",
+    "end_time": "15:10",
+    "technician_name": "Donald",
+    "location_name": "Tiny Jewel Box",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "15:25",
+    "end_time": "15:25",
+    "technician_name": "Donald",
+    "location_name": "Tiny Jewel Box",
+    "location_to": "Tiny Jewel Box",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "15:25",
+    "end_time": "15:55",
+    "technician_name": "Donald",
+    "location_name": "Tiny Jewel Box",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "15:55",
+    "end_time": "17:08",
+    "technician_name": "Donald",
+    "location_name": "Tiny Jewel Box",
+    "location_to": "Office",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "07:01",
+    "end_time": "08:15",
+    "technician_name": "Henry",
+    "location_name": "Office",
+    "location_to": "CW-1100 Vermont",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "08:15",
+    "end_time": "08:45",
+    "technician_name": "Henry",
+    "location_name": "CW-1100 Vermont",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "09:00",
+    "end_time": "09:00",
+    "technician_name": "Henry",
+    "location_name": "CW-1100 Vermont",
+    "location_to": "CW-1100 Vermont",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "09:00",
+    "end_time": "09:30",
+    "technician_name": "Henry",
+    "location_name": "CW-1100 Vermont",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "09:45",
+    "end_time": "09:45",
+    "technician_name": "Henry",
+    "location_name": "CW-1100 Vermont",
+    "location_to": "CW-1100 Vermont",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "09:45",
+    "end_time": "10:15",
+    "technician_name": "Henry",
+    "location_name": "CW-1100 Vermont",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "10:15",
+    "end_time": "11:29",
+    "technician_name": "Henry",
+    "location_name": "CW-1100 Vermont",
+    "location_to": "Office",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "07:50",
+    "end_time": "08:15",
+    "technician_name": "Luis",
+    "location_name": "Office",
+    "location_to": "Corsica Wine Bar",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "08:15",
+    "end_time": "08:45",
+    "technician_name": "Luis",
+    "location_name": "Corsica Wine Bar",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "08:57",
+    "end_time": "09:45",
+    "technician_name": "Luis",
+    "location_name": "Corsica Wine Bar",
+    "location_to": "CW-2175 K St, NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "09:00",
+    "end_time": "09:00",
+    "technician_name": "Luis",
+    "location_name": "Corsica Wine Bar",
+    "location_to": "Corsica Wine Bar",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "09:00",
+    "end_time": "09:30",
+    "technician_name": "Luis",
+    "location_name": "Corsica Wine Bar",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "09:45",
+    "end_time": "10:15",
+    "technician_name": "Luis",
+    "location_name": "CW-2175 K St, NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "10:30",
+    "end_time": "10:30",
+    "technician_name": "Luis",
+    "location_name": "CW-2175 K St, NW",
+    "location_to": "CW-2175 K St, NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "10:30",
+    "end_time": "11:00",
+    "technician_name": "Luis",
+    "location_name": "CW-2175 K St, NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "11:15",
+    "end_time": "11:15",
+    "technician_name": "Luis",
+    "location_name": "CW-2175 K St, NW",
+    "location_to": "CW-2175 K St, NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "11:15",
+    "end_time": "11:45",
+    "technician_name": "Luis",
+    "location_name": "CW-2175 K St, NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "11:59",
+    "end_time": "12:00",
+    "technician_name": "Luis",
+    "location_name": "CW-2175 K St, NW",
+    "location_to": "POL - 2401 Penn",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "12:00",
+    "end_time": "12:30",
+    "technician_name": "Luis",
+    "location_name": "POL - 2401 Penn",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "12:45",
+    "end_time": "12:45",
+    "technician_name": "Luis",
+    "location_name": "POL - 2401 Penn",
+    "location_to": "POL - 2401 Penn",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "12:45",
+    "end_time": "13:15",
+    "technician_name": "Luis",
+    "location_name": "POL - 2401 Penn",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "13:26",
+    "end_time": "13:30",
+    "technician_name": "Luis",
+    "location_name": "POL - 2401 Penn",
+    "location_to": "LPC - 699 14th St, NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "13:30",
+    "end_time": "14:00",
+    "technician_name": "Luis",
+    "location_name": "LPC - 699 14th St, NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "13:56",
+    "end_time": "14:15",
+    "technician_name": "Luis",
+    "location_name": "LPC - 699 14th St, NW",
+    "location_to": "STOL - SHRM 1800 Duke",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "14:15",
+    "end_time": "15:15",
+    "technician_name": "Luis",
+    "location_name": "STOL - SHRM 1800 Duke",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "15:15",
+    "end_time": "16:30",
+    "technician_name": "Luis",
+    "location_name": "STOL - SHRM 1800 Duke",
+    "location_to": "Office",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "07:02",
+    "end_time": "08:15",
+    "technician_name": "Miguel",
+    "location_name": "Office",
+    "location_to": "Tiny Jewel Box",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "08:15",
+    "end_time": "08:45",
+    "technician_name": "Miguel",
+    "location_name": "Tiny Jewel Box",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "08:58",
+    "end_time": "09:00",
+    "technician_name": "Miguel",
+    "location_name": "Tiny Jewel Box",
+    "location_to": "COLL-1275 K St NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "09:00",
+    "end_time": "09:30",
+    "technician_name": "Miguel",
+    "location_name": "COLL-1275 K St NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "09:45",
+    "end_time": "09:45",
+    "technician_name": "Miguel",
+    "location_name": "COLL-1275 K St NW",
+    "location_to": "COLL-1275 K St NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "09:45",
+    "end_time": "10:15",
+    "technician_name": "Miguel",
+    "location_name": "COLL-1275 K St NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "10:29",
+    "end_time": "10:30",
+    "technician_name": "Miguel",
+    "location_name": "COLL-1275 K St NW",
+    "location_to": "LPC - 1341 G St - Formerly LPC Colorado",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "10:30",
+    "end_time": "11:00",
+    "technician_name": "Miguel",
+    "location_name": "LPC - 1341 G St - Formerly LPC Colorado",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "11:13",
+    "end_time": "11:15",
+    "technician_name": "Miguel",
+    "location_name": "LPC - 1341 G St - Formerly LPC Colorado",
+    "location_to": "LPC -1660 L St NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "11:15",
+    "end_time": "11:45",
+    "technician_name": "Miguel",
+    "location_name": "LPC -1660 L St NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "12:00",
+    "end_time": "12:00",
+    "technician_name": "Miguel",
+    "location_name": "LPC -1660 L St NW",
+    "location_to": "LPC -1660 L St NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "12:00",
+    "end_time": "12:30",
+    "technician_name": "Miguel",
+    "location_name": "LPC -1660 L St NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "12:45",
+    "end_time": "12:45",
+    "technician_name": "Miguel",
+    "location_name": "LPC -1660 L St NW",
+    "location_to": "LPC -1660 L St NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "12:45",
+    "end_time": "13:15",
+    "technician_name": "Miguel",
+    "location_name": "LPC -1660 L St NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "13:10",
+    "end_time": "13:30",
+    "technician_name": "Miguel",
+    "location_name": "LPC -1660 L St NW",
+    "location_to": "Chadwick's Old Town",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "13:30",
+    "end_time": "14:00",
+    "technician_name": "Miguel",
+    "location_name": "Chadwick's Old Town",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "14:15",
+    "end_time": "14:15",
+    "technician_name": "Miguel",
+    "location_name": "Chadwick's Old Town",
+    "location_to": "Chadwick's Old Town",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "14:15",
+    "end_time": "14:45",
+    "technician_name": "Miguel",
+    "location_name": "Chadwick's Old Town",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "15:00",
+    "end_time": "15:00",
+    "technician_name": "Miguel",
+    "location_name": "Chadwick's Old Town",
+    "location_to": "Chadwick's Old Town",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "15:00",
+    "end_time": "15:30",
+    "technician_name": "Miguel",
+    "location_name": "Chadwick's Old Town",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-19",
+    "day_of_week": "Thursday",
+    "start_time": "15:30",
+    "end_time": "16:48",
+    "technician_name": "Miguel",
+    "location_name": "Chadwick's Old Town",
+    "location_to": "Office",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "07:03",
+    "end_time": "08:15",
+    "technician_name": "Darwin",
+    "location_name": "Office",
+    "location_to": "JLL-1200 New Hampshire",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "08:15",
+    "end_time": "09:15",
+    "technician_name": "Darwin",
+    "location_name": "JLL-1200 New Hampshire",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "09:30",
+    "end_time": "09:30",
+    "technician_name": "Darwin",
+    "location_name": "JLL-1200 New Hampshire",
+    "location_to": "JLL-1200 New Hampshire",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "09:30",
+    "end_time": "10:30",
+    "technician_name": "Darwin",
+    "location_name": "JLL-1200 New Hampshire",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "10:45",
+    "end_time": "10:45",
+    "technician_name": "Darwin",
+    "location_name": "JLL-1200 New Hampshire",
+    "location_to": "JLL-1200 New Hampshire",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "10:45",
+    "end_time": "11:45",
+    "technician_name": "Darwin",
+    "location_name": "JLL-1200 New Hampshire",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "11:59",
+    "end_time": "12:00",
+    "technician_name": "Darwin",
+    "location_name": "JLL-1200 New Hampshire",
+    "location_to": "CPT-1800 M St NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "12:00",
+    "end_time": "13:00",
+    "technician_name": "Darwin",
+    "location_name": "CPT-1800 M St NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "13:15",
+    "end_time": "13:15",
+    "technician_name": "Darwin",
+    "location_name": "CPT-1800 M St NW",
+    "location_to": "CPT-1800 M St NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "13:15",
+    "end_time": "14:15",
+    "technician_name": "Darwin",
+    "location_name": "CPT-1800 M St NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "14:29",
+    "end_time": "14:30",
+    "technician_name": "Darwin",
+    "location_name": "CPT-1800 M St NW",
+    "location_to": "Akin Gump 2001 K",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "14:30",
+    "end_time": "15:30",
+    "technician_name": "Darwin",
+    "location_name": "Akin Gump 2001 K",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "15:30",
+    "end_time": "16:42",
+    "technician_name": "Darwin",
+    "location_name": "Akin Gump 2001 K",
+    "location_to": "Office",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "07:02",
+    "end_time": "08:15",
+    "technician_name": "Donald",
+    "location_name": "Office",
+    "location_to": "RR 1150 18th",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "08:15",
+    "end_time": "08:30",
+    "technician_name": "Donald",
+    "location_name": "RR 1150 18th",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "08:45",
+    "end_time": "08:45",
+    "technician_name": "Donald",
+    "location_name": "RR 1150 18th",
+    "location_to": "RR 1150 18th",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "08:45",
+    "end_time": "09:00",
+    "technician_name": "Donald",
+    "location_name": "RR 1150 18th",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "09:15",
+    "end_time": "09:15",
+    "technician_name": "Donald",
+    "location_name": "RR 1150 18th",
+    "location_to": "RR 1150 18th",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "09:15",
+    "end_time": "09:30",
+    "technician_name": "Donald",
+    "location_name": "RR 1150 18th",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "09:40",
+    "end_time": "09:45",
+    "technician_name": "Donald",
+    "location_name": "RR 1150 18th",
+    "location_to": "Business Group on Health",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "09:45",
+    "end_time": "10:00",
+    "technician_name": "Donald",
+    "location_name": "Business Group on Health",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "10:13",
+    "end_time": "10:15",
+    "technician_name": "Donald",
+    "location_name": "Business Group on Health",
+    "location_to": "CB-820 First St NE CNN",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "10:15",
+    "end_time": "10:30",
+    "technician_name": "Donald",
+    "location_name": "CB-820 First St NE CNN",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "10:45",
+    "end_time": "10:45",
+    "technician_name": "Donald",
+    "location_name": "CB-820 First St NE CNN",
+    "location_to": "CB-820 First St NE CNN",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "10:45",
+    "end_time": "11:00",
+    "technician_name": "Donald",
+    "location_name": "CB-820 First St NE CNN",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "11:07",
+    "end_time": "11:15",
+    "technician_name": "Donald",
+    "location_name": "CB-820 First St NE CNN",
+    "location_to": "J Street 2901 M",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "11:15",
+    "end_time": "11:30",
+    "technician_name": "Donald",
+    "location_name": "J Street 2901 M",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "11:45",
+    "end_time": "11:45",
+    "technician_name": "Donald",
+    "location_name": "J Street 2901 M",
+    "location_to": "J Street 2901 M",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "11:45",
+    "end_time": "12:00",
+    "technician_name": "Donald",
+    "location_name": "J Street 2901 M",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "12:15",
+    "end_time": "12:15",
+    "technician_name": "Donald",
+    "location_name": "J Street 2901 M",
+    "location_to": "J Street 2901 M",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "12:15",
+    "end_time": "12:30",
+    "technician_name": "Donald",
+    "location_name": "J Street 2901 M",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "12:42",
+    "end_time": "12:45",
+    "technician_name": "Donald",
+    "location_name": "J Street 2901 M",
+    "location_to": "KCE",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "12:45",
+    "end_time": "13:15",
+    "technician_name": "Donald",
+    "location_name": "KCE",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "13:29",
+    "end_time": "13:30",
+    "technician_name": "Donald",
+    "location_name": "KCE",
+    "location_to": "BMS-Pepperdine U",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "13:30",
+    "end_time": "14:00",
+    "technician_name": "Donald",
+    "location_name": "BMS-Pepperdine U",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "14:15",
+    "end_time": "14:15",
+    "technician_name": "Donald",
+    "location_name": "BMS-Pepperdine U",
+    "location_to": "BMS-Pepperdine U",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "14:15",
+    "end_time": "14:45",
+    "technician_name": "Donald",
+    "location_name": "BMS-Pepperdine U",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "15:00",
+    "end_time": "15:00",
+    "technician_name": "Donald",
+    "location_name": "BMS-Pepperdine U",
+    "location_to": "BMS-Pepperdine U",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "15:00",
+    "end_time": "15:30",
+    "technician_name": "Donald",
+    "location_name": "BMS-Pepperdine U",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "15:30",
+    "end_time": "16:42",
+    "technician_name": "Donald",
+    "location_name": "BMS-Pepperdine U",
+    "location_to": "Office",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "07:02",
+    "end_time": "08:15",
+    "technician_name": "Henry",
+    "location_name": "Office",
+    "location_to": "RR 801 18th St, NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "08:15",
+    "end_time": "08:45",
+    "technician_name": "Henry",
+    "location_name": "RR 801 18th St, NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "09:00",
+    "end_time": "09:00",
+    "technician_name": "Henry",
+    "location_name": "RR 801 18th St, NW",
+    "location_to": "RR 801 18th St, NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "09:00",
+    "end_time": "09:30",
+    "technician_name": "Henry",
+    "location_name": "RR 801 18th St, NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "09:45",
+    "end_time": "09:45",
+    "technician_name": "Henry",
+    "location_name": "RR 801 18th St, NW",
+    "location_to": "RR 801 18th St, NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "09:45",
+    "end_time": "10:15",
+    "technician_name": "Henry",
+    "location_name": "RR 801 18th St, NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "10:15",
+    "end_time": "11:28",
+    "technician_name": "Henry",
+    "location_name": "RR 801 18th St, NW",
+    "location_to": "Office",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "07:50",
+    "end_time": "08:15",
+    "technician_name": "Luis",
+    "location_name": "Office",
+    "location_to": "EverEve Reston",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "08:15",
+    "end_time": "08:30",
+    "technician_name": "Luis",
+    "location_name": "EverEve Reston",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "08:25",
+    "end_time": "09:15",
+    "technician_name": "Luis",
+    "location_name": "EverEve Reston",
+    "location_to": "LSG",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "08:45",
+    "end_time": "08:45",
+    "technician_name": "Luis",
+    "location_name": "EverEve Reston",
+    "location_to": "EverEve Reston",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "08:45",
+    "end_time": "09:00",
+    "technician_name": "Luis",
+    "location_name": "EverEve Reston",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "09:15",
+    "end_time": "09:45",
+    "technician_name": "Luis",
+    "location_name": "LSG",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "10:00",
+    "end_time": "10:00",
+    "technician_name": "Luis",
+    "location_name": "LSG",
+    "location_to": "LSG",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "10:00",
+    "end_time": "10:30",
+    "technician_name": "Luis",
+    "location_name": "LSG",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "10:44",
+    "end_time": "10:45",
+    "technician_name": "Luis",
+    "location_name": "LSG",
+    "location_to": "CARR - 1401 New York Ave, NW (formerly LPC)",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "10:45",
+    "end_time": "11:45",
+    "technician_name": "Luis",
+    "location_name": "CARR - 1401 New York Ave, NW (formerly LPC)",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "11:58",
+    "end_time": "12:00",
+    "technician_name": "Luis",
+    "location_name": "CARR - 1401 New York Ave, NW (formerly LPC)",
+    "location_to": "TRAN-1800 K St NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "12:00",
+    "end_time": "13:00",
+    "technician_name": "Luis",
+    "location_name": "TRAN-1800 K St NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "13:15",
+    "end_time": "13:15",
+    "technician_name": "Luis",
+    "location_name": "TRAN-1800 K St NW",
+    "location_to": "TRAN-1800 K St NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "13:15",
+    "end_time": "14:15",
+    "technician_name": "Luis",
+    "location_name": "TRAN-1800 K St NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "14:30",
+    "end_time": "14:30",
+    "technician_name": "Luis",
+    "location_name": "TRAN-1800 K St NW",
+    "location_to": "TRAN-1800 K St NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "14:30",
+    "end_time": "15:30",
+    "technician_name": "Luis",
+    "location_name": "TRAN-1800 K St NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "15:30",
+    "end_time": "16:43",
+    "technician_name": "Luis",
+    "location_name": "TRAN-1800 K St NW",
+    "location_to": "Office",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "07:01",
+    "end_time": "08:15",
+    "technician_name": "Miguel",
+    "location_name": "Office",
+    "location_to": "STRM-740 15th St",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "08:15",
+    "end_time": "08:45",
+    "technician_name": "Miguel",
+    "location_name": "STRM-740 15th St",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "09:00",
+    "end_time": "09:00",
+    "technician_name": "Miguel",
+    "location_name": "STRM-740 15th St",
+    "location_to": "STRM-740 15th St",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "09:00",
+    "end_time": "09:30",
+    "technician_name": "Miguel",
+    "location_name": "STRM-740 15th St",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "09:45",
+    "end_time": "09:45",
+    "technician_name": "Miguel",
+    "location_name": "STRM-740 15th St",
+    "location_to": "STRM-740 15th St",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "09:45",
+    "end_time": "10:15",
+    "technician_name": "Miguel",
+    "location_name": "STRM-740 15th St",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "10:28",
+    "end_time": "10:30",
+    "technician_name": "Miguel",
+    "location_name": "STRM-740 15th St",
+    "location_to": "CW-919 18th St NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "10:30",
+    "end_time": "11:00",
+    "technician_name": "Miguel",
+    "location_name": "CW-919 18th St NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "11:15",
+    "end_time": "11:15",
+    "technician_name": "Miguel",
+    "location_name": "CW-919 18th St NW",
+    "location_to": "CW-919 18th St NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "11:15",
+    "end_time": "11:45",
+    "technician_name": "Miguel",
+    "location_name": "CW-919 18th St NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "12:00",
+    "end_time": "12:00",
+    "technician_name": "Miguel",
+    "location_name": "CW-919 18th St NW",
+    "location_to": "CW-919 18th St NW",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "12:00",
+    "end_time": "12:30",
+    "technician_name": "Miguel",
+    "location_name": "CW-919 18th St NW",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "12:43",
+    "end_time": "12:45",
+    "technician_name": "Miguel",
+    "location_name": "CW-919 18th St NW",
+    "location_to": "CARR - 1401 New York Ave, NW (formerly LPC)",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "12:45",
+    "end_time": "13:45",
+    "technician_name": "Miguel",
+    "location_name": "CARR - 1401 New York Ave, NW (formerly LPC)",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "14:00",
+    "end_time": "14:00",
+    "technician_name": "Miguel",
+    "location_name": "CARR - 1401 New York Ave, NW (formerly LPC)",
+    "location_to": "CARR - 1401 New York Ave, NW (formerly LPC)",
+    "activity_type": "Commute"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "14:00",
+    "end_time": "15:00",
+    "technician_name": "Miguel",
+    "location_name": "CARR - 1401 New York Ave, NW (formerly LPC)",
+    "location_to": null,
+    "activity_type": "Exterior"
+  },
+  {
+    "date": "2026-03-20",
+    "day_of_week": "Friday",
+    "start_time": "15:00",
+    "end_time": "16:14",
+    "technician_name": "Miguel",
+    "location_name": "CARR - 1401 New York Ave, NW (formerly LPC)",
+    "location_to": "Office",
+    "activity_type": "Commute"
+  }
+]

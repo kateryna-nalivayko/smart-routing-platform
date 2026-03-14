@@ -111,6 +111,8 @@ def build_week_request_from_oasis(
                         requires_lift=s.requires_lift,
                         requires_pesticides=s.requires_pesticides,
                         requires_citizen=s.requires_citizen,
+                        requires_permit=s.requires_permit,
+                        permit_techs=s.permit_techs,
                         preferred_techs=s.preferred_techs,
                         avoid_techs=s.avoid_techs,
                         group_id=group_id,
